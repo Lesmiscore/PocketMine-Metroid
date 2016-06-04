@@ -127,9 +127,6 @@ public class VersionManagerActivity extends AppCompatActivity {
 
 						@Override
 						public void run() {
-							TextView softVersionView = (TextView) findViewById(R.id.soft_version);
-							TextView softDateView = (TextView) findViewById(R.id.soft_date);
-							Button softDownload = (Button) findViewById(R.id.download_soft);
 							TextView stableVersionView = (TextView) findViewById(R.id.stable_version);
 							TextView stableDateView = (TextView) findViewById(R.id.stable_date);
 							Button stableDownload = (Button) findViewById(R.id.download_stable);
@@ -140,18 +137,6 @@ public class VersionManagerActivity extends AppCompatActivity {
 							TextView devDateView = (TextView) findViewById(R.id.dev_date);
 							Button devDownload = (Button) findViewById(R.id.download_dev);
 
-							softVersionView.setText("Version: "
-									+ softVersion + " (API: " + softAPI
-									+ ")");
-							softDateView.setText(softDate);
-							softDownload.setOnClickListener(new OnClickListener() {
-								
-								@Override
-								public void onClick(View v) {
-									download(softDownloadURL, softVersion);
-								}
-							});
-							
 							stableVersionView.setText("Version: "
 									+ stableVersion + " (API: " + stableAPI
 									+ ")");
