@@ -15,6 +15,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
 import net.pocketmine.server.R;
+import android.support.v7.app.*;
 
 public class ServerService extends Service {
 	private boolean isRunning = false;
@@ -44,9 +45,10 @@ public class ServerService extends Service {
 
 			Context context = getApplicationContext();
 			
-			Notification note = new Notification(R.drawable.ic_launcher,
-					"PocketMine-MP is running",
-					System.currentTimeMillis());
+			android.support.v4.app.NotificationCompat.Builder note=new NotificationCompat.Builder(this)
+				.setSmallIcon(R.drawable.ic_launcher)
+				.setContentTitle("PocketMine-MP is running")
+				.setWhen(System.currentTimeMillis());
 			Intent i = new Intent(context, HomeActivity.class);
 
 			i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
@@ -54,10 +56,11 @@ public class ServerService extends Service {
 
 			PendingIntent pi = PendingIntent.getActivity(this, 0, i, 0);
 
-			note.setLatestEventInfo(this, "PocketMine-MP is running", "Tap here to open PocketMine-MP for Android.", pi);
-			note.flags |= Notification.FLAG_NO_CLEAR;
+			note.setContentText("Tap here to open PocketMine-MP for Android.");
+			note.setContentIntent(pi);
+			note.setOngoing(true);
 
-			startForeground(1337, note);
+			startForeground(1337, note.build());
 		}
 	}
 
