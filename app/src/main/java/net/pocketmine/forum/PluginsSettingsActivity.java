@@ -17,7 +17,7 @@ import android.text.TextUtils;
 
 import java.util.List;
 
-import net.pocketmine.server.R;
+import com.nao20010128nao.PM_Metroid.R;
 import krsw.device.locker.*;
 
 /**

@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 import java.security.SecureRandom;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import net.pocketmine.server.R;
+import com.nao20010128nao.PM_Metroid.R;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;

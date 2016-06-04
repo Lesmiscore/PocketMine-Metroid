@@ -14,7 +14,7 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
-import net.pocketmine.server.R;
+import com.nao20010128nao.PM_Metroid.R;
 import android.support.v7.app.*;
 
 public class ServerService extends Service {

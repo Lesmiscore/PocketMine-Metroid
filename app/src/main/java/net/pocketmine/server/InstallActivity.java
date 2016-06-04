@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import net.pocketmine.server.R;
+import com.nao20010128nao.PM_Metroid.R;
 import android.support.v7.app.*;
 
 public class InstallActivity extends AppCompatActivity {

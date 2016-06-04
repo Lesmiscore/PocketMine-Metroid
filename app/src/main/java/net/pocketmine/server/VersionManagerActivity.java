@@ -14,7 +14,7 @@ import java.net.URLConnection;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import net.pocketmine.server.R;
+import com.nao20010128nao.PM_Metroid.R;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 

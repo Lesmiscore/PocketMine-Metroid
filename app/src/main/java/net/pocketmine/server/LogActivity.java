@@ -1,6 +1,6 @@
 package net.pocketmine.server;
 
-import net.pocketmine.server.R;
+import com.nao20010128nao.PM_Metroid.R;
 
 import android.graphics.Color;
 import android.os.Build;

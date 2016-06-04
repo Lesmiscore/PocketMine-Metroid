@@ -17,7 +17,7 @@ import com.astuetz.PagerSlidingTabStrip;
 import net.pocketmine.forum.DynamicLayout.ShowViewListener;
 import net.pocketmine.forum.GridAdapter.DownloadImageTask;
 import net.pocketmine.forum.PluginListManager.PluginDownloadInfo;
-import net.pocketmine.server.R;
+import com.nao20010128nao.PM_Metroid.R;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;

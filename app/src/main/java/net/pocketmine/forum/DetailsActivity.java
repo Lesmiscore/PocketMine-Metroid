@@ -26,7 +26,6 @@ import org.oelerich.BBCodeParser.SimpleParser;
 
 import net.pocketmine.forum.PluginListManager.PluginDownloadInfo;
 import net.pocketmine.server.HomeActivity;
-import net.pocketmine.server.R;
 import net.pocketmine.server.ServerUtils;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -65,6 +64,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.support.v7.app.*;
 import android.view.*;
+
+import com.nao20010128nao.PM_Metroid.R;
 
 public class DetailsActivity extends AppCompatActivity {
 

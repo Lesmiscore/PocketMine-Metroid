@@ -18,7 +18,8 @@ import java.util.Locale;
 import org.apache.http.conn.util.InetAddressUtils;
 
 import net.pocketmine.forum.PluginsActivity;
-import net.pocketmine.server.R;
+import com.nao20010128nao.PM_Metroid.R;
+import com.nao20010128nao.PM_Metroid.BuildConfig;
 
 import android.app.AlertDialog;
 import android.content.Context;

@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import com.astuetz.PagerSlidingTabStrip;
 
 import net.pocketmine.forum.PluginsActivity.Plugin;
-import net.pocketmine.server.R;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -23,6 +22,8 @@ import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.support.v7.app.*;
 import android.view.*;
+
+import com.nao20010128nao.PM_Metroid.R;
 
 public class CategoryActivity extends AppCompatActivity {
 
