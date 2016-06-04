@@ -2,7 +2,6 @@ package net.pocketmine.forum;
 
 import java.util.ArrayList;
 
-import net.pocketmine.server.R;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -12,6 +11,7 @@ import android.util.Log;
 import android.widget.GridView;
 import android.support.v7.app.*;
 import android.view.*;
+import com.nao20010128nao.PM_Metroid.R;
 
 public class SearchResultsActivity extends AppCompatActivity {
 

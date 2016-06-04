@@ -5,7 +5,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import net.pocketmine.forum.DetailsActivity.Review;
-import net.pocketmine.server.R;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
@@ -15,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.support.v7.app.*;
 import android.view.*;
+import com.nao20010128nao.PM_Metroid.R;
 
 public class ReviewActivity extends AppCompatActivity {
 

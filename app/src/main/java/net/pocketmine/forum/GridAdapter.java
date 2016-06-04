@@ -3,7 +3,6 @@ package net.pocketmine.forum;
 import java.io.InputStream;
 import java.util.ArrayList;
 
-import net.pocketmine.server.R;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -22,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import com.nao20010128nao.PM_Metroid.R;
 
 public class GridAdapter extends BaseAdapter {
 	private Context ctx;
