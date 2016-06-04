@@ -133,5 +133,13 @@
             android:name="net.pocketmine.server.DeveloperActivity"
             android:label="@string/title_activity_developer" >
         </activity>
+		
+		
+		<activity
+            android:name="net.pocketmine.server.PhpVersionSelectorActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/php_select_version"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
+        </activity>
     </application>
 </manifest>

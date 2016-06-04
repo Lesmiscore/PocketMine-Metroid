@@ -125,5 +125,7 @@
     <string name="dummy_date">1/1/1970</string>
     <string name="channel_beta">Beta</string>
     <string name="channel_dev">Development</string>
-
+	<string name="php_select_version">Please select PHP binary version</string>
+	<string name="php_reinstall">Reinstall PHP binary</string>
+	
 </resources>

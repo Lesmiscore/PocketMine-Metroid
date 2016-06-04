@@ -59,7 +59,8 @@ public class HomeActivity extends AppCompatActivity {
 	final static int FORCE_CLOSE_CODE = PLUGINS_CODE + 1;
 	final static int ABOUT_US_CODE = FORCE_CLOSE_CODE + 1;
 	final static int CONSOLE_CODE = ABOUT_US_CODE + 1;
-	final static int DEV_CODE = CONSOLE_CODE + 1;
+	final static int REINSTALL_PHP_CODE = CONSOLE_CODE + 1;
+	final static int DEV_CODE = REINSTALL_PHP_CODE + 1;
 	public static HashMap<String, String> server;
 	public static SharedPreferences prefs;
 
@@ -441,8 +442,8 @@ public class HomeActivity extends AppCompatActivity {
 	protected void onStart() {
 		super.onStart();
 
-		if (!ServerUtils.checkIfInstalled()) {
-			startActivity(new Intent(mContext, InstallActivity.class));
+		if (!ServerUtils.checkPhpInstalled()) {
+			startActivity(new Intent(mContext, PhpVersionSelectorActivity.class));
 		}
 	}
 
@@ -471,6 +472,7 @@ public class HomeActivity extends AppCompatActivity {
 		sub.add(0, PLUGINS_CODE, 0, getString(R.string.abs_plugins));
 		sub.add(0, FORCE_CLOSE_CODE, 0, getString(R.string.abs_force_close));
 		sub.add(0, ABOUT_US_CODE, 0, getString(R.string.abs_about));
+		sub.add(0, REINSTALL_PHP_CODE, 0, getString(R.string.php_reinstall));
 		if (BuildConfig.DEBUG)
 			sub.add(0, DEV_CODE, 0, "Developer");
 		// sub.add(0, SETTING_CODE, 0, getString(R.string.abs_settings));
@@ -519,6 +521,8 @@ public class HomeActivity extends AppCompatActivity {
 
 		} else if (item.getItemId() == CONSOLE_CODE) {
 			startActivity(new Intent(mContext, LogActivity.class));
+		} else if (item.getItemId() == REINSTALL_PHP_CODE) {
+			startActivity(new Intent(mContext, PhpVersionSelectorActivity.class).putExtra("reinst",true));
 		} else if (item.getItemId() == DEV_CODE) {
 			startActivity(new Intent(mContext, DeveloperActivity.class));
 		}

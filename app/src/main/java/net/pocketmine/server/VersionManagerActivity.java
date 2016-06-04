@@ -175,7 +175,7 @@ public class VersionManagerActivity extends AppCompatActivity {
 							scrollView.setVisibility(View.VISIBLE);
 							if (install) {
 								skip.setVisibility(ServerUtils
-										.checkIfInstalled() ? View.VISIBLE
+										.checkPMInstalled() ? View.VISIBLE
 										: View.GONE);
 							}
 						}

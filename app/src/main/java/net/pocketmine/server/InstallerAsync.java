@@ -9,13 +9,14 @@ import net.pocketmine.server.R;
 
 import android.app.Activity;
 import android.widget.TextView;
+import java.io.*;
 
 public class InstallerAsync extends android.os.AsyncTask<Void, String, Void> {
 
 	Boolean fromAssets;
 	Integer fromWhichAct;
 	String orgLoc, toLoc;
-	Activity ctx;
+	InstallActivity ctx;
 	TextView tv_install_exec;
 
 	@Override
@@ -23,7 +24,8 @@ public class InstallerAsync extends android.os.AsyncTask<Void, String, Void> {
 
 		// floc = ServerUtils.getAppDirectory() + "/";
 		// sdloc = ServerUtils.getDataDirectory() + "/";
-
+		publishProgress("Deleting previous version..");
+		delete(new File(toLoc));
 		if (extract(fromAssets, toLoc, orgLoc)) {
 			// if(extract(sdloc, "sd_data.zip")){
 			publishProgress("ok");
@@ -112,6 +114,7 @@ public class InstallerAsync extends android.os.AsyncTask<Void, String, Void> {
 	@Override
 	protected void onPostExecute(Void result) {
 		super.onPostExecute(result);
+		ctx.installing=false;
 	}
 
 	/*
@@ -122,5 +125,15 @@ public class InstallerAsync extends android.os.AsyncTask<Void, String, Void> {
 			f.mkdirs();
 		}
 	}*/
-
+	
+	public void delete(File f) {
+		if(!f.exists())return;
+		if (f.isDirectory()) {
+			File[] files = f.listFiles();
+			for (File file : files) {
+				delete(file);
+			}
+		}
+		f.delete();
+	}
 }
