@@ -29,3 +29,7 @@ proguard/
 *.ipr
 *.iws
 .idea/
+
+
+build/
+local.properties
