@@ -2,10 +2,6 @@ package net.pocketmine.forum;
 
 import java.util.ArrayList;
 
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
 import com.astuetz.PagerSlidingTabStrip;
 
 import net.pocketmine.forum.PluginsActivity.Plugin;
@@ -25,8 +21,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.LinearLayout;
+import android.support.v7.app.*;
+import android.view.*;
 
-public class CategoryActivity extends SherlockFragmentActivity {
+public class CategoryActivity extends AppCompatActivity {
 
 	int cat;
 	PagerSlidingTabStrip tabs;
@@ -72,7 +70,7 @@ public class CategoryActivity extends SherlockFragmentActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getSupportMenuInflater().inflate(R.menu.category, menu);
+		getMenuInflater().inflate(R.menu.category, menu);
 		return true;
 	}
 	

@@ -4,11 +4,6 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
-
 import net.pocketmine.forum.DetailsActivity.Review;
 import net.pocketmine.server.R;
 import android.graphics.drawable.ColorDrawable;
@@ -18,8 +13,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.support.v7.app.*;
+import android.view.*;
 
-public class ReviewActivity extends SherlockActivity {
+public class ReviewActivity extends AppCompatActivity {
 
 	Boolean hasMore = false;
 

@@ -1,8 +1,5 @@
 package net.pocketmine.server;
 
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
 import net.pocketmine.server.R;
 
 import android.graphics.Color;
@@ -19,10 +16,12 @@ import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.support.v7.app.*;
+import android.view.*;
 
 @SuppressWarnings("deprecation")
 @android.annotation.TargetApi(Build.VERSION_CODES.GINGERBREAD)
-public class LogActivity extends SherlockActivity {
+public class LogActivity extends AppCompatActivity {
 
 	public static LogActivity logActivity;
 	public static ScrollView sv;

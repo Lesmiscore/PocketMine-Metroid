@@ -12,10 +12,10 @@ package net.pocketmine.server;
 import android.os.Bundle;
 import android.webkit.WebView;
 
-import com.actionbarsherlock.app.SherlockActivity;
 import net.pocketmine.server.R;
+import android.support.v7.app.*;
 
-public class About extends SherlockActivity {
+public class About extends AppCompatActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 

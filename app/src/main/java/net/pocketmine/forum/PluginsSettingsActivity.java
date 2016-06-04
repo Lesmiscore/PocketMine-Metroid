@@ -17,9 +17,8 @@ import android.text.TextUtils;
 
 import java.util.List;
 
-import com.actionbarsherlock.app.SherlockPreferenceActivity;
-
 import net.pocketmine.server.R;
+import krsw.device.locker.*;
 
 /**
  * A {@link PreferenceActivity} that presents a set of application settings. On
@@ -32,7 +31,7 @@ import net.pocketmine.server.R;
  * href="http://developer.android.com/guide/topics/ui/settings.html">Settings
  * API Guide</a> for more information on developing a Settings UI.
  */
-public class PluginsSettingsActivity extends SherlockPreferenceActivity {
+public class PluginsSettingsActivity extends AppCompatPreferenceActivity {
 	/**
 	 * Determines whether to always show the simplified settings UI, where
 	 * settings are presented in a single list. When false, settings are shown

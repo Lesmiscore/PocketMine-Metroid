@@ -11,10 +11,10 @@ package net.pocketmine.server;
 
 import android.os.Bundle;
 
-import com.actionbarsherlock.app.SherlockActivity;
 import net.pocketmine.server.R;
+import android.support.v7.app.*;
 
-public class FileManagerActivity extends SherlockActivity {
+public class FileManagerActivity extends AppCompatActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 

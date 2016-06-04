@@ -7,11 +7,6 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import net.pocketmine.server.R;
 
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.ActionMode;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -23,8 +18,10 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.support.v7.app.*;
+import android.view.*;
 
-public class WhitelistActivity extends SherlockActivity {
+public class WhitelistActivity extends AppCompatActivity {
 
 	ActionMode actionMode = null;
 
@@ -160,7 +157,7 @@ public class WhitelistActivity extends SherlockActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getSupportMenuInflater().inflate(R.menu.whitelist, menu);
+		getMenuInflater().inflate(R.menu.whitelist, menu);
 		return true;
 	}
 

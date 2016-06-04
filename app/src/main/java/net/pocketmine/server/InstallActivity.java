@@ -5,10 +5,10 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.actionbarsherlock.app.SherlockActivity;
 import net.pocketmine.server.R;
+import android.support.v7.app.*;
 
-public class InstallActivity extends SherlockActivity {
+public class InstallActivity extends AppCompatActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 

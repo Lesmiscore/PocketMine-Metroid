@@ -9,9 +9,6 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import net.pocketmine.server.R;
 
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.Menu;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -32,8 +29,10 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
+import android.support.v7.app.*;
+import android.view.*;
 
-public class ConfigActivity extends SherlockActivity {
+public class ConfigActivity extends AppCompatActivity {
 
 	private Boolean install = false;
 

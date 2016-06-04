@@ -12,12 +12,6 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.JSONValue;
 
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
-import com.actionbarsherlock.widget.SearchView;
-import com.actionbarsherlock.widget.SearchView.OnQueryTextListener;
 import com.astuetz.PagerSlidingTabStrip;
 
 import net.pocketmine.forum.DynamicLayout.ShowViewListener;
@@ -56,8 +50,12 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.support.v7.app.*;
+import android.view.*;
+import android.support.v7.widget.*;
+import android.support.v7.widget.SearchView.*;
 
-public class PluginsActivity extends SherlockFragmentActivity {
+public class PluginsActivity extends AppCompatActivity {
 
 	public static class Plugin {
 		public int id;
@@ -354,7 +352,7 @@ public class PluginsActivity extends SherlockFragmentActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getSupportMenuInflater().inflate(R.menu.plugins, menu);
+		getMenuInflater().inflate(R.menu.plugins, menu);
 		addSearch(this, getSupportActionBar(), menu);
 		return true;
 	}
@@ -369,7 +367,7 @@ public class PluginsActivity extends SherlockFragmentActivity {
 		SearchView searchView = new SearchView(actionBar.getThemedContext());
 		searchView.setQueryHint("Search for plugins");
 		AutoCompleteTextView searchText = (AutoCompleteTextView) searchView
-				.findViewById(R.id.abs__search_src_text);
+				.findViewById(R.id.search_src_text);
 		searchText.setHintTextColor(Color.WHITE);
 		searchView.setOnQueryTextListener(new OnQueryTextListener() {
 

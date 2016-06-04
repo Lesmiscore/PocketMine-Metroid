@@ -24,11 +24,6 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.oelerich.BBCodeParser.SimpleParser;
 
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
-
 import net.pocketmine.forum.PluginListManager.PluginDownloadInfo;
 import net.pocketmine.server.HomeActivity;
 import net.pocketmine.server.R;
@@ -68,8 +63,10 @@ import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.support.v7.app.*;
+import android.view.*;
 
-public class DetailsActivity extends SherlockActivity {
+public class DetailsActivity extends AppCompatActivity {
 
 	public static String ClickFixScript = "<script>"
 			+ "var arr = document.getElementsByTagName('a');"
@@ -779,7 +776,7 @@ public class DetailsActivity extends SherlockActivity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getSupportMenuInflater().inflate(R.menu.details, menu);
+		getMenuInflater().inflate(R.menu.details, menu);
 		return true;
 	}
 

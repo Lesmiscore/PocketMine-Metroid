@@ -37,22 +37,18 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
-import com.actionbarsherlock.view.SubMenu;
-import com.google.android.gms.ads.doubleclick.PublisherAdRequest;
-import com.google.android.gms.ads.doubleclick.PublisherAdView;
 import com.google.android.vending.licensing.AESObfuscator;
 import com.google.android.vending.licensing.LicenseChecker;
 import com.google.android.vending.licensing.ServerManagedPolicy;
+import android.support.v7.app.*;
+import android.view.*;
 
 /**
  * Activity to Home Screen
  */
 
 @android.annotation.TargetApi(Build.VERSION_CODES.GINGERBREAD)
-public class HomeActivity extends SherlockActivity {
+public class HomeActivity extends AppCompatActivity {
 
 	// private final String TAG = "com.github.com.DroidPHP";
 	final static int PROJECT_CODE = 143;
@@ -172,9 +168,6 @@ public class HomeActivity extends SherlockActivity {
 		if (isStarted) {
 			showStats(false);
 		}
-
-		PublisherAdView adView = (PublisherAdView) findViewById(R.id.adView);
-		adView.loadAd(new PublisherAdRequest.Builder().build());
 
 		LicenseChecker mChecker = new LicenseChecker(
 				this,

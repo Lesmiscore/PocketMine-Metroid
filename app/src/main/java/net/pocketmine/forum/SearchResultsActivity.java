@@ -2,11 +2,6 @@ package net.pocketmine.forum;
 
 import java.util.ArrayList;
 
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
-
 import net.pocketmine.server.R;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -15,8 +10,10 @@ import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.GridView;
+import android.support.v7.app.*;
+import android.view.*;
 
-public class SearchResultsActivity extends SherlockActivity {
+public class SearchResultsActivity extends AppCompatActivity {
 
 	public ArrayList<PluginsActivity.Plugin> plugins = null;
 
@@ -76,7 +73,7 @@ public class SearchResultsActivity extends SherlockActivity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		getSupportMenuInflater().inflate(R.menu.search_results, menu);
+		getMenuInflater().inflate(R.menu.search_results, menu);
 		PluginsActivity.addSearch(this, getSupportActionBar(), menu);
 		return true;
 	}

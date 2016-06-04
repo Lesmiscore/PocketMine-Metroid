@@ -30,10 +30,9 @@ import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.support.v7.app.*;
 
-import com.actionbarsherlock.app.SherlockActivity;
-
-public class VersionManagerActivity extends SherlockActivity {
+public class VersionManagerActivity extends AppCompatActivity {
 	public ArrayAdapter<CharSequence> adapter;
 	private Boolean install = false;
 
