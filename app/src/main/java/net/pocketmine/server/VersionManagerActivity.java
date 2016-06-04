@@ -41,7 +41,7 @@ public class VersionManagerActivity extends AppCompatActivity {
 		super.onCreate(savedInstanceState);
 
 		install = getIntent().getBooleanExtra("install", false);
-		setContentView(R.layout.version_manager);
+		setContentView(R.layout.version_manager_new);
 
 		start();
 	}
