@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.support.v7.app.*;
 import android.view.*;
+import android.graphics.*;
 
 @SuppressWarnings("deprecation")
 @android.annotation.TargetApi(Build.VERSION_CODES.GINGERBREAD)
@@ -34,6 +35,7 @@ public class LogActivity extends AppCompatActivity {
 		logActivity = this;
 		TextView logTV = (TextView) findViewById(R.id.logTextView);
 		logTV.setText(currentLog);
+		logTV.setTypeface(Typeface.MONOSPACE);
 
 		sv = (ScrollView) findViewById(R.id.logScrollView);
 
