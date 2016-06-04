@@ -137,7 +137,7 @@ public class VersionManagerActivity extends AppCompatActivity {
 							TextView devDateView = (TextView) findViewById(R.id.dev_date);
 							Button devDownload = (Button) findViewById(R.id.download_dev);
 
-							stableVersionView.setText("Version: "
+							stableVersionView.setText(getResources().getString(R.string.version)+": "
 									+ stableVersion + " (API: " + stableAPI
 									+ ")");
 							stableDateView.setText(stableDate);
@@ -149,7 +149,7 @@ public class VersionManagerActivity extends AppCompatActivity {
 								}
 							});
 
-							betaVersionView.setText("Version: " + betaVersion
+							betaVersionView.setText(getResources().getString(R.string.version)+": " + betaVersion
 									+ " (API: " + betaAPI + ")");
 							betaDateView.setText(betaDate);
 							betaDownload.setOnClickListener(new OnClickListener() {
@@ -160,7 +160,7 @@ public class VersionManagerActivity extends AppCompatActivity {
 								}
 							});
 
-							devVersionView.setText("Version: " + devVersion
+							devVersionView.setText(getResources().getString(R.string.version)+": " + devVersion
 									+ " (API: " + devAPI + ")");
 							devDateView.setText(devDate);
 							devDownload.setOnClickListener(new OnClickListener() {
@@ -183,7 +183,7 @@ public class VersionManagerActivity extends AppCompatActivity {
 				} catch (Exception err) {
 					err.printStackTrace();
 					if (install) {
-						showToast("Cannot load version list. Retrying in 5 seconds...");
+						showToast(getResources().getString(R.string.failed_load_version));
 						try {
 							Thread.sleep(5000);
 						} catch (InterruptedException e) {
@@ -199,7 +199,7 @@ public class VersionManagerActivity extends AppCompatActivity {
 						}
 						start();
 					} else {
-						showToast("Cannot load version list.");
+						showToast(getResources().getString(R.string.failed_load_version_2));
 						runOnUiThread(new Runnable() {
 
 							@Override
@@ -227,8 +227,8 @@ public class VersionManagerActivity extends AppCompatActivity {
 			public void run() {
 				final ProgressDialog dlDialog = new ProgressDialog(ctx);
 				dlDialog.setMax(100);
-				dlDialog.setTitle("Downloading this version...");
-				dlDialog.setMessage("Please wait...");
+				dlDialog.setTitle(R.string.dl_this_version);
+				dlDialog.setMessage(getResources().getString(R.string.please_wait));
 				dlDialog.setIndeterminate(false);
 				dlDialog.setCancelable(false);
 				dlDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
@@ -269,7 +269,7 @@ public class VersionManagerActivity extends AppCompatActivity {
 							input.close();
 						} catch (Exception e) {
 							e.printStackTrace();
-							showToast("Failed to download this version.");
+							showToast(getResources().getString(R.string.dl_this_version_failed));
 							dlDialog.dismiss();
 							return;
 						}
@@ -296,8 +296,8 @@ public class VersionManagerActivity extends AppCompatActivity {
 			public void run() {
 				final ProgressDialog iDialog = new ProgressDialog(ctx);
 				iDialog.setMax(100);
-				iDialog.setTitle("Installing this version...");
-				iDialog.setMessage("Please wait...");
+				iDialog.setTitle(R.string.dl_this_version);
+				iDialog.setMessage(getResources().getString(R.string.please_wait));
 				iDialog.setIndeterminate(false);
 				iDialog.setCancelable(false);
 				iDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);

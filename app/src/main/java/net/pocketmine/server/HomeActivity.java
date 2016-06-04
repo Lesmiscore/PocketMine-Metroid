@@ -116,9 +116,9 @@ public class HomeActivity extends AppCompatActivity {
 				btn_runServer.setEnabled(false);
 				btn_stopServer.setEnabled(true);
 				btn_runServer.setText(R.string.server_online);
-				String msg = "Unable to start server";
+				String msg = getResources().getString(R.string.start_unable);
 				if (ServerUtils.isRunning()) {
-					msg = "Server is now running";
+					msg = getResources().getString(R.string.start_success);
 				}
 				android.widget.Toast.makeText(mContext, msg,
 						android.widget.Toast.LENGTH_LONG).show();
@@ -143,7 +143,7 @@ public class HomeActivity extends AppCompatActivity {
 			public void onClick(View v) {
 
 				if (ServerUtils.isRunning()) {
-					LogActivity.log("[PocketMine] Stopping server...");
+					LogActivity.log(getResources().getString(R.string.log_stopping));
 					ServerUtils.executeCMD("stop");
 				}
 
@@ -210,7 +210,7 @@ public class HomeActivity extends AppCompatActivity {
 			}
 		} catch (Exception ex) {
 		}
-		return "Unknown";
+		return ha.getResources().getString(R.string.unknown);
 	}
 
 	private void actionPlayer(final String cmd) {
@@ -218,9 +218,9 @@ public class HomeActivity extends AppCompatActivity {
 			return;
 
 		AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
-		builder.setTitle("Op Player...");
+		builder.setTitle(getResources().getString(R.string.op_player));
 		final CharSequence[] list = new CharSequence[players.length + 1];
-		list[0] = "Cancel";
+		list[0] = getResources().getString(android.R.string.cancel);
 		for (int i = 0; i < players.length; i++) {
 			list[i + 1] = players[i];
 		}
@@ -248,11 +248,11 @@ public class HomeActivity extends AppCompatActivity {
 
 	public static void showStats(Boolean reset) {
 		if (reset) {
-			online = "Unknown";
-			ram = "Unknown";
-			download = "Unknown";
-			upload = "Unknown";
-			tps = "Unknown";
+			online = ha.getResources().getString(R.string.unknown);
+			ram = ha.getResources().getString(R.string.unknown);
+			download = ha.getResources().getString(R.string.unknown);
+			upload = ha.getResources().getString(R.string.unknown);
+			tps = ha.getResources().getString(R.string.unknown);
 			players = null;
 		}
 		if (ha != null) {
@@ -264,7 +264,7 @@ public class HomeActivity extends AppCompatActivity {
 					layout.setVisibility(View.VISIBLE);
 					statsShown = true;
 					TextView ip = (TextView) ha.findViewById(R.id.stat_ip);
-					ip.setText("IP Address: " + getIPAddress(true));
+					ip.setText(ha.getResources().getString(R.string.ip_address) + ": " + getIPAddress(true));
 					setStats(online, ram, download, upload, tps);
 					updatePlayerList(players);
 				}
@@ -291,17 +291,17 @@ public class HomeActivity extends AppCompatActivity {
 
 					TextView online = (TextView) ha
 							.findViewById(R.id.stat_online);
-					online.setText("Online: " + nOnline);
+					online.setText(ha.getResources().getString(R.string.online)+": " + nOnline);
 					TextView ram = (TextView) ha.findViewById(R.id.stat_ram);
-					ram.setText("RAM Usage: " + nRAM);
+					ram.setText(ha.getResources().getString(R.string.ram_usage)+": " + nRAM);
 					TextView download = (TextView) ha
 							.findViewById(R.id.stat_download);
-					download.setText("Download: " + nDownload + " kB/s");
+					download.setText(ha.getResources().getString(R.string.download)+": " + nDownload + " kB/s");
 					TextView upload = (TextView) ha
 							.findViewById(R.id.stat_upload);
-					upload.setText("Upload: " + nUpload + " kB/s");
+					upload.setText(ha.getResources().getString(R.string.upload)+": " + nUpload + " kB/s");
 					TextView tps = (TextView) ha.findViewById(R.id.stat_tps);
-					tps.setText("Ticks per second: " + nTPS);
+					tps.setText(ha.getResources().getString(R.string.tps)+": " + nTPS);
 				}
 			});
 		}
@@ -363,11 +363,11 @@ public class HomeActivity extends AppCompatActivity {
 									ll.addView(input);
 									new AlertDialog.Builder(kickBtn
 											.getContext())
-											.setTitle("Kick")
-											.setMessage("Kick reason:")
+											.setTitle(R.string.player_kick)
+											.setMessage(R.string.kick_reason)
 											.setView(ll)
 											.setPositiveButton(
-													"Kick",
+													R.string.player_kick,
 													new DialogInterface.OnClickListener() {
 														public void onClick(
 																DialogInterface dialog,
@@ -380,7 +380,7 @@ public class HomeActivity extends AppCompatActivity {
 																					.toString());
 														}
 													})
-											.setNegativeButton("Cancel", null)
+											.setNegativeButton(android.R.string.cancel, null)
 											.show();
 								}
 							});
@@ -392,10 +392,10 @@ public class HomeActivity extends AppCompatActivity {
 								public void onClick(View arg0) {
 									AlertDialog.Builder builder = new AlertDialog.Builder(
 											banBtn.getContext());
-									builder.setTitle("Ban Player...");
+									builder.setTitle(R.string.ban_player_title);
 									builder.setItems(
-											new CharSequence[] { "Ban Player",
-													"Ban Player IP", "Cancel" },
+											new CharSequence[] { ha.getResources().getString(R.string.ban_player),
+													ha.getResources().getString(R.string.ban_player_ip), ha.getResources().getString(android.R.string.cancel) },
 											new DialogInterface.OnClickListener() {
 
 												@Override
@@ -450,7 +450,7 @@ public class HomeActivity extends AppCompatActivity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		menu.add(0, CONSOLE_CODE, 0, "Console")
+		menu.add(0, CONSOLE_CODE, 0, getResources().getString(R.string.title_activity_log))
 				.setIcon(R.drawable.hardware_dock)
 				.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
 
@@ -475,7 +475,7 @@ public class HomeActivity extends AppCompatActivity {
 		sub.add(0, ABOUT_US_CODE, 0, getString(R.string.abs_about));
 		sub.add(0, REINSTALL_PHP_CODE, 0, getString(R.string.php_reinstall));
 		if (BuildConfig.DEBUG)
-			sub.add(0, DEV_CODE, 0, "Developer");
+			sub.add(0, DEV_CODE, 0, R.string.developer);
 		// sub.add(0, SETTING_CODE, 0, getString(R.string.abs_settings));
 		sub.getItem().setShowAsAction(
 				MenuItem.SHOW_AS_ACTION_IF_ROOM

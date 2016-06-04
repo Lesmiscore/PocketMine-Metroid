@@ -29,7 +29,7 @@ public class DeveloperActivity extends Activity {
 			public void onClick(View view) {
 				AlertDialog.Builder b = new AlertDialog.Builder(
 						DeveloperActivity.this);
-				b.setTitle("Edit local plugin list");
+				b.setTitle(getResources().getString(R.string.dev_local_edit));
 				PluginListManager.load();
 				final ArrayList<PluginDownloadInfo> p = PluginListManager.plugins;
 				CharSequence[] items = new CharSequence[p.size()];
@@ -46,7 +46,7 @@ public class DeveloperActivity extends Activity {
 								DeveloperActivity.this);
 						b.setTitle("Edit #" + id);
 						CharSequence[] actions = new CharSequence[1];
-						actions[0] = "Set last update time to 0";
+						actions[0] = getResources().getString(R.string.dev_set_upd_zero);
 						b.setItems(actions, new DialogInterface.OnClickListener() {
 							
 							@Override

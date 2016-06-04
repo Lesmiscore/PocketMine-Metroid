@@ -47,7 +47,7 @@ public class ServerService extends Service {
 			
 			android.support.v4.app.NotificationCompat.Builder note=new NotificationCompat.Builder(this)
 				.setSmallIcon(R.drawable.ic_launcher)
-				.setContentTitle("PocketMine-MP is running")
+				.setContentTitle(context.getResources().getString(R.string.service_running))
 				.setWhen(System.currentTimeMillis());
 			Intent i = new Intent(context, HomeActivity.class);
 
@@ -56,7 +56,7 @@ public class ServerService extends Service {
 
 			PendingIntent pi = PendingIntent.getActivity(this, 0, i, 0);
 
-			note.setContentText("Tap here to open PocketMine-MP for Android.");
+			note.setContentText(context.getResources().getString(R.string.tap_open));
 			note.setContentIntent(pi);
 			note.setOngoing(true);
 

@@ -460,11 +460,10 @@ public class ConfigActivity extends AppCompatActivity {
 			input.setLayoutParams(layoutParams);
 			ll.addView(input);
 			new AlertDialog.Builder(this)
-					.setTitle("Custom...")
-					.setMessage(
-							"Select the maximal amount of RAM, which PocketMine can use.")
+					.setTitle(getResources().getString(R.string.config_custom))
+					.setMessage(getResources().getString(R.string.config_max_ram))
 					.setView(ll)
-					.setPositiveButton("Done",
+					.setPositiveButton(R.string.done,
 							new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface dialog,
 										int whichButton) {
@@ -480,7 +479,8 @@ public class ConfigActivity extends AppCompatActivity {
 										e.printStackTrace();
 									}
 								}
-							}).setNegativeButton("Cancel", null).show();
+							})
+			.setNegativeButton(android.R.string.cancel, null).show();
 		}
 	}
 

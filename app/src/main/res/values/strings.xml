@@ -125,7 +125,51 @@
     <string name="dummy_date">1/1/1970</string>
     <string name="channel_beta">Beta</string>
     <string name="channel_dev">Development</string>
+	
+	
+	
 	<string name="php_select_version">Please select PHP binary version</string>
 	<string name="php_reinstall">Reinstall PHP binary</string>
-	
+	<!--ServerService-->
+	<string name="service_running">PocketMine-MP is running</string>
+	<string name="tap_open">Tap here to open PocketMine-MP for Android.</string>
+	<!--ConfigActivity-->
+	<string name="config_custom">Custom...</string>
+	<string name="config_max_ram">Select the maximal amount of RAM, which PocketMine can use.</string>
+	<string name="done">Done</string>
+	<!--DeveloperActivity-->
+	<string name="dev_local_edit">Edit local plugin list</string>
+	<string name="dev_set_upd_zero">Edit local plugin list</string>
+	<!--HomeActivity-->
+	<string name="start_unable">Unable to start server</string>
+	<string name="start_success">Server is now running</string>
+	<string name="unknown">Unknown</string>
+	<string name="op_player">Op Player...</string>
+	<string name="ip_address">IP Address</string>
+	<string name="online">Online</string>
+	<string name="ram_usage">RAM Usage</string>
+	<string name="upload">Upload</string>
+	<string name="tps">Ticks per second</string>
+	<string name="kick_reason">Kick reason:</string>
+	<string name="ban_player">Ban Player</string>
+	<string name="ban_player_title">Ban Player...</string>
+	<string name="ban_player_ip">Ban Player IP</string>
+	<string name="developer">Developer</string>
+	<!--InstallerAsync-->
+	<string name="delete_previous">Deleting previous version...</string>
+	<string name="extracting">"Extracting: "</string>
+	<string name="error">Error</string>
+	<!--LogActivity-->
+	<string name="copied">Console text was copied to your\'s clipboard.</string>
+	<string name="clear">Clear</string>
+	<!--VersionManagerActivity-->
+	<string name="version">Version</string>
+	<string name="failed_load_version">Cannot load version list. Retrying in 5 seconds...</string>
+	<string name="failed_load_version_2">Cannot load version list.</string>
+	<string name="dl_this_version">Downloading this version...</string>
+	<string name="please_wait">Please wait...</string>
+	<string name="dl_this_version_failed">Failed to download this version.</string>
+	<!--WhitelistActivity-->
+	<string name="whitelist_player">Whitelist player</string>
+	<string name="whitelist_dialog">Write the player name, which you want to whitelist.</string>
 </resources>

@@ -16,6 +16,7 @@ import java.nio.charset.Charset;
 
 import android.content.Context;
 import android.util.Log;
+import com.nao20010128nao.PM_Metroid.*;
 
 public final class ServerUtils {
 
@@ -99,14 +100,14 @@ public final class ServerUtils {
 			stdout = serverProc.getInputStream();
 			stdin = serverProc.getOutputStream();
 
-			LogActivity.log("[PocketMine] Server is starting...");
+			LogActivity.log(mContext.getResources().getString(R.string.log_starting));
 
 			Thread tMonitor = new Thread() {
 				public void run() {
 					InputStreamReader reader = new InputStreamReader(stdout,
 							Charset.forName("UTF-8"));
 					BufferedReader br = new BufferedReader(reader);
-					LogActivity.log("[PocketMine] Server was started.");
+					LogActivity.log(mContext.getResources().getString(R.string.log_started));
 
 					while (isRunning()) {
 						try {
@@ -206,7 +207,7 @@ public final class ServerUtils {
 						}
 					}
 
-					LogActivity.log("[PocketMine] Server was stopped.");
+					LogActivity.log(mContext.getResources().getString(R.string.log_stopped));
 					HomeActivity.stopNotifyService();
 					HomeActivity.hideStats();
 				}
@@ -217,7 +218,7 @@ public final class ServerUtils {
 			Log.i(TAG, "PHP is started");
 		} catch (java.lang.Exception e) {
 			Log.e(TAG, "Unable to start PHP", e);
-			LogActivity.log("[PocketMine] Unable to start PHP.");
+			LogActivity.log(mContext.getResources().getString(R.string.log_php_error));
 			HomeActivity.stopNotifyService();
 			HomeActivity.hideStats();
 			killProcessByName("php");

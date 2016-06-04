@@ -24,7 +24,7 @@ public class InstallerAsync extends android.os.AsyncTask<Void, String, Void> {
 
 		// floc = ServerUtils.getAppDirectory() + "/";
 		// sdloc = ServerUtils.getDataDirectory() + "/";
-		publishProgress("Deleting previous version..");
+		publishProgress(ctx.getString(R.string.delete_previous));
 		delete(new File(toLoc));
 		if (extract(fromAssets, toLoc, orgLoc)) {
 			// if(extract(sdloc, "sd_data.zip")){
@@ -63,7 +63,7 @@ public class InstallerAsync extends android.os.AsyncTask<Void, String, Void> {
 					FileOutputStream fout = new FileOutputStream(loc
 							+ ze.getName());
 
-					publishProgress("Extracting : " + ze.getName());
+					publishProgress(ctx.getString(R.string.extracting) + ze.getName());
 
 					byte[] buffer = new byte[4096 * 10];
 					int length = 0;
@@ -93,11 +93,11 @@ public class InstallerAsync extends android.os.AsyncTask<Void, String, Void> {
 	protected void onProgressUpdate(String... values) {
 		super.onProgressUpdate(values);
 
-		String text = "Error";
+		String text = ctx.getString(R.string.error);
 		tv_install_exec.setVisibility(1);
-		if (values[0] == "error")
+		if (values[0].equals("error"))
 			text = ctx.getString(R.string.bin_error);
-		else if (values[0] == "ok") {
+		else if (values[0].equals("ok")) {
 			text = ctx.getString(R.string.bin_installed);
 			HomeActivity.btn_runServer.setEnabled(true);
 			if (fromWhichAct == 0) {

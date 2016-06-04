@@ -66,7 +66,7 @@ public class WhitelistActivity extends AppCompatActivity {
 						@Override
 						public boolean onCreateActionMode(ActionMode mode,
 								Menu menu) {
-							menu.add(0, 1, 0, "Remove")
+							menu.add(0, 1, 0, R.string.whitelist_remove)
 									.setIcon(R.drawable.ic_action_remove)
 									.setShowAsAction(
 											MenuItem.SHOW_AS_ACTION_ALWAYS);
@@ -174,11 +174,10 @@ public class WhitelistActivity extends AppCompatActivity {
 			input.setLayoutParams(layoutParams);
 			ll.addView(input);
 			new AlertDialog.Builder(this)
-					.setTitle("Whitelist player")
-					.setMessage(
-							"Write the player name, which you want to whitelist.")
+					.setTitle(R.string.whitelist_player)
+					.setMessage(R.string.whitelist_dialog)
 					.setView(ll)
-					.setPositiveButton("Whitelist",
+					.setPositiveButton(R.string.title_activity_whitelist,
 							new DialogInterface.OnClickListener() {
 								public void onClick(DialogInterface dialog,
 										int whichButton) {
@@ -187,7 +186,7 @@ public class WhitelistActivity extends AppCompatActivity {
 									save();
 									load();
 								}
-							}).setNegativeButton("Cancel", null).show();
+							}).setNegativeButton(android.R.string.cancel, null).show();
 			return true;
 		}
 

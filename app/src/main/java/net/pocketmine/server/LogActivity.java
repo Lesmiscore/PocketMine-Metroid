@@ -71,7 +71,7 @@ public class LogActivity extends AppCompatActivity {
 			ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
 			clipboard.setText(currentLog);
 			Toast.makeText(this,
-					"Console text was copied to your's clipboard.",
+					R.string.copied,
 					Toast.LENGTH_SHORT).show();
 		}
 		return false;
@@ -80,10 +80,10 @@ public class LogActivity extends AppCompatActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		menu.add(0, COPY_CODE, 0, "Copy").setIcon(R.drawable.content_copy)
+		menu.add(0, COPY_CODE, 0, android.R.string.copy).setIcon(R.drawable.content_copy)
 				.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
 
-		menu.add(0, CLEAR_CODE, 0, "Clear").setIcon(R.drawable.content_discard)
+		menu.add(0, CLEAR_CODE, 0, R.string.clear).setIcon(R.drawable.content_discard)
 				.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
 		return true;
 	}
