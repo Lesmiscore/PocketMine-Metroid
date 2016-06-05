@@ -287,13 +287,18 @@ public final class ServerUtils {
 
 	final static private void setPermission() {
 		try {
+			/*
 			execCommand("/system/bin/chmod 777 " + getAppDirectory() + "/php");
 			execCommand("/system/bin/chmod 777 " + getAppDirectory()
 					+ "/killall");
-		} catch (java.lang.Exception e) {
+			*/
+			for(File f:new File(getAppDirectory()).listFiles()){
+				Log.d("setPermission",f.getAbsolutePath());
+				execCommand("/system/bin/chmod 777 "+f.getAbsolutePath());
+			}
+		} catch (Throwable e) {
 			Log.e(TAG, "setPermission", e);
 		}
-
 	}
 
 	public static boolean checkPhpInstalled() {
