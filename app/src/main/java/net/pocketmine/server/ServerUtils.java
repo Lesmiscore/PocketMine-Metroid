@@ -84,8 +84,10 @@ public final class ServerUtils {
 		setPermission();
 
 		String file = "/PocketMine-MP.php";
-		if (new File(getDataDirectory() + "/PocketMine-MP.phar").exists()) {
+		if (new File(getDataDirectory(), "/PocketMine-MP.phar").exists()) {
 			file = "/PocketMine-MP.phar";
+		}else if (new File(getDataDirectory(), "/src/pocketmine/PocketMine.php").exists()) {
+			file = "/src/pocketmine/PocketMine.php";
 		}
 		String[] serverCmd = { getAppDirectory() + "/php",
 				// getAppDirectory() + "/php_data/PocketMine-MP.php"
