@@ -58,13 +58,7 @@ public class SearchResultsActivity extends AppCompatActivity {
 		ActionBar bar = getSupportActionBar();
 		bar.setHomeButtonEnabled(true);
 		bar.setDisplayHomeAsUpEnabled(true);
-		Drawable colorDrawable = new ColorDrawable(PluginsActivity.color);
-		Drawable bottomDrawable = getResources().getDrawable(
-				R.drawable.actionbar_bottom);
-		LayerDrawable ld = new LayerDrawable(new Drawable[] { colorDrawable,
-				bottomDrawable });
-		bar.setBackgroundDrawable(ld);
-
+		
 		GridView grid = (GridView) findViewById(R.id.plugins_list);
 		grid.setSelector(new ColorDrawable(Color.TRANSPARENT));
 		grid.setAdapter(new GridAdapter(this, plugins));

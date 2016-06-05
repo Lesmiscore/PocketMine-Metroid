@@ -37,12 +37,6 @@ public class ReviewActivity extends AppCompatActivity {
 		ActionBar bar = getSupportActionBar();
 		bar.setHomeButtonEnabled(true);
 		bar.setDisplayHomeAsUpEnabled(true);
-		Drawable colorDrawable = new ColorDrawable(PluginsActivity.color);
-		Drawable bottomDrawable = getResources().getDrawable(
-				R.drawable.actionbar_bottom);
-		LayerDrawable ld = new LayerDrawable(new Drawable[] { colorDrawable,
-				bottomDrawable });
-		bar.setBackgroundDrawable(ld);
 
 		ArrayList<Review> reviews = (ArrayList<Review>) obj;
 

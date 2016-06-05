@@ -53,12 +53,6 @@ public class CategoryActivity extends AppCompatActivity {
 		ActionBar bar = getSupportActionBar();
 		bar.setDisplayShowHomeEnabled(true);
 		bar.setDisplayHomeAsUpEnabled(true);
-		Drawable colorDrawable = new ColorDrawable(PluginsActivity.color);
-		Drawable bottomDrawable = getResources().getDrawable(
-				R.drawable.actionbar_bottom);
-		LayerDrawable ld = new LayerDrawable(new Drawable[] { colorDrawable,
-				bottomDrawable });
-		bar.setBackgroundDrawable(ld);
 
 		tabs = (PagerSlidingTabStrip) findViewById(R.id.plugins_tabs);
 		pager = (ViewPager) findViewById(R.id.plugins_pager);

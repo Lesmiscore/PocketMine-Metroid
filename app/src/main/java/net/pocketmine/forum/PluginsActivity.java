@@ -103,14 +103,6 @@ public class PluginsActivity extends AppCompatActivity {
 
 		activity = this;
 
-		ActionBar bar = getSupportActionBar();
-		Drawable colorDrawable = new ColorDrawable(color);
-		Drawable bottomDrawable = getResources().getDrawable(
-				R.drawable.actionbar_bottom);
-		LayerDrawable ld = new LayerDrawable(new Drawable[] { colorDrawable,
-				bottomDrawable });
-		bar.setBackgroundDrawable(ld);
-
 		tabs = (PagerSlidingTabStrip) findViewById(R.id.plugins_tabs);
 		pager = (ViewPager) findViewById(R.id.plugins_pager);
 		adapter = new PluginsTabs(getSupportFragmentManager());
