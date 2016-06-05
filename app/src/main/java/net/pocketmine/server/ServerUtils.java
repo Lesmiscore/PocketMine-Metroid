@@ -17,6 +17,7 @@ import java.nio.charset.Charset;
 import android.content.Context;
 import android.util.Log;
 import com.nao20010128nao.PM_Metroid.*;
+import java.io.*;
 
 public final class ServerUtils {
 
@@ -82,7 +83,7 @@ public final class ServerUtils {
 			f.mkdir();
 		}
 		setPermission();
-
+		updatePhpIniIfNeeded();
 		String file = "/PocketMine-MP.php";
 		if (new File(getDataDirectory(), "/PocketMine-MP.phar").exists()) {
 			file = "/PocketMine-MP.phar";
@@ -297,6 +298,49 @@ public final class ServerUtils {
 				execCommand("/system/bin/chmod 777 "+f.getAbsolutePath());
 			}
 		} catch (Throwable e) {
+			Log.e(TAG, "setPermission", e);
+		}
+	}
+	
+	final static private void updatePhpIniIfNeeded(){
+		try{
+			File php_ini=new File(getAppDirectory(),"php.ini");
+			if(!php_ini.exists()){
+				return;
+			}
+			BufferedReader fr=null;
+			try{
+				fr=new BufferedReader(new FileReader(php_ini));
+				if(fr.readLine().startsWith("extension_dir"))return;
+			}finally{
+				if(fr!=null)fr.close();
+			}
+			StringWriter sw=new StringWriter();
+			char[] buf=new char[100];
+			int r=0;
+			try{
+				fr=new BufferedReader(new FileReader(php_ini));
+				while(true){
+					r=fr.read(buf);
+					if(r<=0){
+						break;
+					}
+					sw.write(buf,0,r);
+				}
+			}finally{
+				if(fr!=null)fr.close();
+			}
+			FileWriter fw=null;
+			try{
+				fw=new FileWriter(php_ini);
+				fw.append("extension_dir=");
+				fw.append(getAppDirectory());
+				fw.append("\r\n");
+				fw.append(sw.toString());
+			}finally{
+				if(fw!=null)fw.close();
+			}
+		}catch(Throwable e){
 			Log.e(TAG, "setPermission", e);
 		}
 	}
