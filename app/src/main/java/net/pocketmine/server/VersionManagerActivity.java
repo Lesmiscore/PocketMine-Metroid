@@ -31,6 +31,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.support.v7.app.*;
+import net.pocketmine.server.install.*;
 
 public class VersionManagerActivity extends AppCompatActivity {
 	public ArrayAdapter<CharSequence> adapter;
@@ -81,15 +82,8 @@ public class VersionManagerActivity extends AppCompatActivity {
 				try {
 					JSONObject softObj = (JSONObject) JSONValue
 							.parse(getPageContext("http://pocketmine.net/api/?channel=soft"));
-					final String softVersion = (String) softObj
-							.get("version");
-					final String softAPI = (String) softObj
-							.get("api_version");
 					Long date = (Long) softObj.get("date");
 					Date d = new Date(date * 1000);
-					final String softDate = SimpleDateFormat
-							.getDateInstance().format(d);
-					final String softDownloadURL = (String) softObj.get("download_url");
 					
 					JSONObject stableObj = (JSONObject) JSONValue
 							.parse(getPageContext("http://pocketmine.net/api/?channel=stable"));
@@ -142,10 +136,9 @@ public class VersionManagerActivity extends AppCompatActivity {
 									+ ")");
 							stableDateView.setText(stableDate);
 							stableDownload.setOnClickListener(new OnClickListener() {
-								
 								@Override
 								public void onClick(View v) {
-									download(stableDownloadURL, stableVersion);
+									download(SoftwareKind.POCKETMINE_STABLE);
 								}
 							});
 
@@ -153,10 +146,9 @@ public class VersionManagerActivity extends AppCompatActivity {
 									+ " (API: " + betaAPI + ")");
 							betaDateView.setText(betaDate);
 							betaDownload.setOnClickListener(new OnClickListener() {
-								
 								@Override
 								public void onClick(View v) {
-									download(betaDownloadURL, betaVersion);
+									download(SoftwareKind.POCKETMINE_BETA);
 								}
 							});
 
@@ -164,10 +156,9 @@ public class VersionManagerActivity extends AppCompatActivity {
 									+ " (API: " + devAPI + ")");
 							devDateView.setText(devDate);
 							devDownload.setOnClickListener(new OnClickListener() {
-								
 								@Override
 								public void onClick(View v) {
-									download(devDownloadURL, devVersion);
+									download(SoftwareKind.POCKETMINE_DEV);
 								}
 							});
 
@@ -213,7 +204,7 @@ public class VersionManagerActivity extends AppCompatActivity {
 		}).start();
 	}
 
-	private void download(final String address, final String fver) {
+	private void download(final SoftwareKind sk) {
 		File vdir = new File(ServerUtils.getDataDirectory(), "/versions/");
 		if(!vdir.exists()){
 			vdir.mkdirs();
@@ -238,7 +229,7 @@ public class VersionManagerActivity extends AppCompatActivity {
 					@Override
 					public void run() {
 						try {
-							URL url = new URL(address);
+							URL url = new URL(sk.getDownloadAddress());
 							URLConnection connection = url.openConnection();
 							connection.connect();
 							int fileLength = connection.getContentLength();
@@ -247,7 +238,7 @@ public class VersionManagerActivity extends AppCompatActivity {
 									.openStream());
 							OutputStream output = new FileOutputStream(
 									ServerUtils.getDataDirectory()
-											+ "/versions/" + fver + ".phar");
+											+ "/versions/" + sk.getVersion() + ".phar");
 
 							byte data[] = new byte[1024];
 							long total = 0;
@@ -275,9 +266,11 @@ public class VersionManagerActivity extends AppCompatActivity {
 
 						dlDialog.dismiss();
 
-						install(fver);
-						// dlDialog.setTitle("Installing this version...");
-						// dlDialog.show();
+						try {
+							install(sk);
+						} catch (IOException e) {
+							
+						}
 					}
 
 				}).start();
@@ -285,9 +278,9 @@ public class VersionManagerActivity extends AppCompatActivity {
 		});
 	}
 
-	private void install(CharSequence ver) {
+	private void install(final SoftwareKind sk)throws IOException{
 		final VersionManagerActivity ctx = this;
-		final CharSequence fver = ver;
+		final CharSequence fver = sk.getVersion();
 
 		runOnUiThread(new Runnable() {
 
@@ -319,23 +312,11 @@ public class VersionManagerActivity extends AppCompatActivity {
 							new File(ServerUtils.getDataDirectory(), "/PocketMine-MP.phar").delete();
 						} catch (Exception e) {
 						}
-
+						
+						File installer=new File(ServerUtils.getDataDirectory(), "versions/" + fver + ".phar");
+						
 						try {
-							FileInputStream in = new FileInputStream(
-									ServerUtils.getDataDirectory()
-											+ "/versions/" + fver + ".phar");
-
-							FileOutputStream out = new FileOutputStream(
-									ServerUtils.getDataDirectory()
-											+ "/PocketMine-MP.phar");
-							byte[] buffer = new byte[1024];
-							int len;
-							while ((len = in.read(buffer)) > 0) {
-								out.write(buffer, 0, len);
-							}
-							in.close();
-							out.close();
-
+							if(!sk.getInstaller().install(installer,new File(ServerUtils.getDataDirectory())))throw new RuntimeException();
 							runOnUiThread(new Runnable() {
 
 								@Override
@@ -352,7 +333,7 @@ public class VersionManagerActivity extends AppCompatActivity {
 								}
 							});
 						} catch (Exception e) {
-							showToast("Failed to install this version.");
+							showToast(getResources().getString(R.string.dl_this_version_failed));
 							e.printStackTrace();
 						}
 					}
@@ -375,7 +356,6 @@ public class VersionManagerActivity extends AppCompatActivity {
 	public void showToast(String msg) {
 		final String fmsg = msg;
 		runOnUiThread(new Runnable() {
-
 			@Override
 			public void run() {
 				Toast.makeText(getApplicationContext(), fmsg,
