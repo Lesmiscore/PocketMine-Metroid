@@ -298,14 +298,10 @@ public final class ServerUtils {
 
 	public static boolean checkPhpInstalled() {
 
-		File mPhp = new File(getAppDirectory() + "/php");
+		File mPhp = new File(getAppDirectory(), "/php");
 		
 		int saveVer = HomeActivity.prefs != null ? HomeActivity.prefs.getInt(
 				"filesVersion", 0) : 0;
-
-		// File mMySql = new File(getAppDirectory() + "/mysqld");
-		// File mLighttpd = new File(getAppDirectory() + "/lighttpd");
-		// File mMySqlMon = new File(getAppDirectory() + "/mysql-monitor");
 
 		if (mPhp.exists() && saveVer == 6) {
 
@@ -318,17 +314,13 @@ public final class ServerUtils {
 	}
 	
 	public static boolean checkPMInstalled() {
-		File mPM = new File(getDataDirectory() + "/PocketMine-MP.php");
-		File mPMPhar = new File(getDataDirectory() + "/PocketMine-MP.phar");
-		File mPMSrc = new File(getDataDirectory() + "/src/PocketMine-MP.php");
+		File mPM = new File(getDataDirectory(), "/PocketMine-MP.php");
+		File mPMPhar = new File(getDataDirectory(), "/PocketMine-MP.phar");
+		File mPMSrc = new File(getDataDirectory(), "/src/pocketmine/PocketMine.php");
 
 		int saveVer = HomeActivity.prefs != null ? HomeActivity.prefs.getInt(
 			"filesVersion", 0) : 0;
-
-		// File mMySql = new File(getAppDirectory() + "/mysqld");
-		// File mLighttpd = new File(getAppDirectory() + "/lighttpd");
-		// File mMySqlMon = new File(getAppDirectory() + "/mysql-monitor");
-
+			
 		if ((mPM.exists() || mPMPhar.exists() || mPMSrc.exists()) && saveVer == 6) {
 
 			return true;

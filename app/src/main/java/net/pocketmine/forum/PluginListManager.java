@@ -31,7 +31,7 @@ public class PluginListManager {
 
 	@SuppressWarnings("unchecked")
 	public static void load() {
-		File f = new File(ServerUtils.getDataDirectory() + "/plugins/.plugins");
+		File f = new File(ServerUtils.getDataDirectory(), "/plugins/.plugins");
 		if (f.exists()) {
 			try {
 				FileInputStream fin = new FileInputStream(f);

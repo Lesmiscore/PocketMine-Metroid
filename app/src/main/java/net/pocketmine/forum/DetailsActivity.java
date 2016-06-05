@@ -295,16 +295,14 @@ public class DetailsActivity extends AppCompatActivity {
 							.getPluginInfo(pluginID);
 					if (info != null) {
 						// 3. REMOVE FILES
-						File f = new File(ServerUtils.getDataDirectory()
-								+ "/plugins/" + info.filename);
+						File f = new File(new File(ServerUtils.getDataDirectory(), "/plugins/"), info.filename);
 						if (f.exists())
 							f.delete();
 
 						ArrayList<String> files = info.files;
 						if (files != null) {
 							for (int i = 0; i < files.size(); i++) {
-								f = new File(ServerUtils.getDataDirectory()
-										+ "/plugins/" + files.get(i));
+								f = new File(new File(ServerUtils.getDataDirectory(), "/plugins/"), files.get(i));
 								if (f.exists())
 									f.delete();
 							}

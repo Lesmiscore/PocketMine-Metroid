@@ -199,8 +199,7 @@ public class DownloadService extends Service {
 					ArrayList<String> files = info.files;
 					if (files != null) {
 						for (int i = 0; i < files.size(); i++) {
-							File f = new File(ServerUtils.getDataDirectory()
-									+ "/plugins/" + files.get(i));
+							File f = new File(new File(ServerUtils.getDataDirectory(), "/plugins/"), files.get(i));
 							if (f.exists())
 								f.delete();
 						}
@@ -366,7 +365,7 @@ public class DownloadService extends Service {
 					if (f.exists()) {
 						f.delete();
 					}
-					new File(path + ".download").renameTo(f);
+					new File(path, ".download").renameTo(f);
 				}
 
 				PluginListManager.installPlugin(id, updated, filename, files);

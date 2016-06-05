@@ -55,7 +55,7 @@ public class InstallerAsync extends android.os.AsyncTask<Void, String, Void> {
 				if (ze.isDirectory()) {
 					// dirChecker(ze.getName());
 				} else {
-					java.io.File f = new java.io.File(loc + ze.getName());
+					java.io.File f = new java.io.File(loc, ze.getName());
 					f = new java.io.File(f.getParent());
 					if (!f.isDirectory())
 						f.mkdirs();
