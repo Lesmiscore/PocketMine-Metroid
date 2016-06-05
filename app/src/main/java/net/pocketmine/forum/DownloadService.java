@@ -28,6 +28,7 @@ import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import android.widget.Toast;
+import com.nao20010128nao.PM_Metroid.*;
 
 public class DownloadService extends Service {
 	private static class QueueDownload {
@@ -137,8 +138,8 @@ public class DownloadService extends Service {
 		try {
 			NotificationCompat.Builder builder = new NotificationCompat.Builder(
 					this);
-			builder.setContentTitle("Plugin download")
-					.setContentText("Downloading...")
+			builder.setContentTitle(getResources().getString(R.string.plugin_download))
+					.setContentText(getResources().getString(R.string.downloading))
 					.setSmallIcon(android.R.drawable.stat_sys_download)
 					.setOngoing(true);
 			builder.setProgress(0, 0, true);
@@ -413,7 +414,7 @@ public class DownloadService extends Service {
 					@Override
 					public void run() {
 						Toast.makeText(DownloadService.this,
-								"Failed to download the plugin.",
+								R.string.dl_plugin_failed,
 								Toast.LENGTH_SHORT).show();
 					}
 				});

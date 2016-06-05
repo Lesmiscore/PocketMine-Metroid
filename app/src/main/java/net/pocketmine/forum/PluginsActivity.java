@@ -365,7 +365,7 @@ public class PluginsActivity extends AppCompatActivity {
 			Menu menu) {
 
 		SearchView searchView = new SearchView(actionBar.getThemedContext());
-		searchView.setQueryHint("Search for plugins");
+		searchView.setQueryHint(activity.getResources().getString(R.string.search_plugin));
 		AutoCompleteTextView searchText = (AutoCompleteTextView) searchView
 				.findViewById(R.id.search_src_text);
 		searchText.setHintTextColor(Color.WHITE);
@@ -376,7 +376,7 @@ public class PluginsActivity extends AppCompatActivity {
 				Log.d("Search", query);
 
 				if (query.length() < 3) {
-					Toast.makeText(activity, "Enter at least 3 characters.",
+					Toast.makeText(activity, R.string.enter_3_chr,
 							Toast.LENGTH_SHORT).show();
 					return false;
 				}
@@ -474,7 +474,7 @@ public class PluginsActivity extends AppCompatActivity {
 				});
 
 				if (matches.size() <= 0) {
-					Toast.makeText(activity, "No matches found.",
+					Toast.makeText(activity, R.string.no_match,
 							Toast.LENGTH_SHORT).show();
 					return false;
 				}
@@ -510,9 +510,7 @@ public class PluginsActivity extends AppCompatActivity {
 
 	public class PluginsTabs extends FragmentPagerAdapter {
 
-		public String[] tabs = { "Categories", "Home", "Updates", "Featured",
-				"Essential", "Best Plugins", "Top Plugins", "Top New Plugins",
-				"Recently updated" };
+		public String[] tabs = getResources().getStringArray(R.array.forum_plugins);
 
 		public PluginsTabs(FragmentManager fm) {
 			super(fm);
@@ -699,11 +697,7 @@ public class PluginsActivity extends AppCompatActivity {
 			final ArrayAdapter<String> adapter = new ArrayAdapter<String>(
 					getActivity(),
 					R.layout.plugins_category,
-					new String[] { "Admin Tools", "Anti-Griefing Tools",
-							"Chat Related", "Developer Tools", "Economy",
-							"Fun", "General", "Informational", "Mechanics",
-							"Miscellaneous", "Teleportation",
-							"World Editing and Management", "World Generators" });
+					getActivity().getResources().getStringArray(R.array.forum_plugins_categories));
 			lv.setAdapter(adapter);
 			lv.setOnItemClickListener(new OnItemClickListener() {
 

@@ -189,7 +189,7 @@ public class DetailsActivity extends AppCompatActivity {
 			_author.setText(plugin.author);
 			_rate.setRating(Double.valueOf(plugin.rated).floatValue());
 			_rateCount.setText("" + plugin.ratedTimes);
-			_downloads.setText("Downloads: " + plugin.downloadCount);
+			_downloads.setText(getResources().getString(R.string.downloads)+": " + plugin.downloadCount);
 			_downloadSize.setText("");
 			Date d = new Date(
 					Integer.valueOf(plugin.lastUpdate).longValue() * 1000);
@@ -271,7 +271,7 @@ public class DetailsActivity extends AppCompatActivity {
 			_progressLayout.setVisibility(View.VISIBLE);
 			int progress = DownloadService.runningService.getProgress(pluginID);
 			if (progress == -1) {
-				_progressValue.setText("Downloading...");
+				_progressValue.setText(R.string.downloading);
 				_progress.setIndeterminate(true);
 			} else {
 				_progress.setIndeterminate(false);
@@ -288,7 +288,7 @@ public class DetailsActivity extends AppCompatActivity {
 				// 1. CHECK SERVER RUNNING
 				if (HomeActivity.isStarted) {
 					Toast.makeText(DetailsActivity.this,
-							"To download a plugin, stop the server first.",
+							R.string.stopserver_download,
 							Toast.LENGTH_SHORT).show();
 					return;
 				}
@@ -331,7 +331,7 @@ public class DetailsActivity extends AppCompatActivity {
 			public void onClick(View v) {
 				if (HomeActivity.isStarted) {
 					Toast.makeText(DetailsActivity.this,
-							"To download a plugin, stop the server first.",
+							R.string.stopserver_download,
 							Toast.LENGTH_SHORT).show();
 					return;
 				}
@@ -369,7 +369,7 @@ public class DetailsActivity extends AppCompatActivity {
 		_download.setVisibility(View.GONE);
 		_update.setVisibility(View.GONE);
 		_progressLayout.setVisibility(View.VISIBLE);
-		_progressValue.setText("Downloading...");
+		_progressValue.setText(R.string.downloading);
 		_progress.setIndeterminate(true);
 		Intent i = new Intent(DetailsActivity.this, DownloadService.class);
 		i.putExtra("id", pluginID);
@@ -436,10 +436,10 @@ public class DetailsActivity extends AppCompatActivity {
 		PluginDownloadInfo info = PluginListManager.getPluginInfo(pluginID);
 		if (info != null) {
 			isInstalled = true;
-			_download.setText("UNINSTALL");
+			_download.setText(R.string.uninstall_upper);
 		} else {
 			isInstalled = false;
-			_download.setText("DOWNLOAD");
+			_download.setText(R.string.download_upper);
 		}
 	}
 
@@ -525,8 +525,8 @@ public class DetailsActivity extends AppCompatActivity {
 					} else {
 						customDl = true;
 						fileSize = 0;
-						fileSizeText = "Unknown";
-						fileExt = "Unknown (External site)";
+						fileSizeText = getResources().getString(R.string.unknown);
+						fileExt = getResources().getString(R.string.unknown_ext);
 					}
 
 					reviews = null;
@@ -542,14 +542,14 @@ public class DetailsActivity extends AppCompatActivity {
 						public void run() {
 							_name.setText((String) jp.get("title"));
 							_author.setText((String) jp.get("username"));
-							_downloads.setText("Downloads: "
+							_downloads.setText(getResources().getString(R.string.downloads)+": "
 									+ (Long) jp.get("download_count"));
 							_downloadSize.setText(fileSizeText);
 							_rate.setRating(Double.valueOf(
 									getDouble(jp.get("rating_avg")))
 									.floatValue());
 							_rate2.setRating(_rate.getRating());
-							_rate2value.setText("Current rating: "
+							_rate2value.setText(getResources().getString(R.string.cur_rate)+": "
 									+ ((double) Math.round(getDouble(jp
 											.get("rating_avg")) * 10) / 10));
 							_rateCount.setText(""
@@ -560,7 +560,7 @@ public class DetailsActivity extends AppCompatActivity {
 							Date d = new Date(((Long) jp.get("last_update"))
 									.longValue() * 1000);
 							_lastUpdate.setText(new SimpleDateFormat(
-									"d MMM yyyy").format(d));
+									/*DATE RESOURCE HERE*/).format(d));
 							// p.tag = ((Long) jp.get("prefix_id")).intValue();
 							// p.category = ((Long)
 							// jp.get("category_id")).intValue();
@@ -596,8 +596,8 @@ public class DetailsActivity extends AppCompatActivity {
 											+ "<br/><br/><i>Version: "
 											+ version + "<br/>Last updated: "
 											+ _lastUpdate.getText()
-											+ "<br/>Size: " + fileSizeText
-											+ "<br/>File extension: " + fileExt
+											+ "<br/>"+getResources().getString(R.string.size)+": " + fileSizeText
+											+ "<br/>"+getResources().getString(R.string.extension)+": " + fileExt
 											+ "</i>" + ClickFixScript
 											+ "</body></html>",
 									"text/html; charset=UTF-8", null);
@@ -607,15 +607,15 @@ public class DetailsActivity extends AppCompatActivity {
 
 							Log.d("PluginDetails", "ExtURL:" + extURL);
 
-							makeLink(_links, "Plugin's page",
+							makeLink(_links, getResources().getString(R.string.plugin_page),
 									"http://forums.pocketmine.net/plugins/"
 											+ pluginID + "/");
 
 							if (!extURL.equals("")) {
-								makeLink(_links, "External page", extURL);
+								makeLink(_links, getResources().getString(R.string.ext_page), extURL);
 							}
 							if (!supportURL.equals("")) {
-								makeLink(_links, "Support", supportURL);
+								makeLink(_links, getResources().getString(R.string.support), supportURL);
 							}
 
 							_reviews.removeAllViews();
@@ -826,7 +826,7 @@ public class DetailsActivity extends AppCompatActivity {
 			ratingBar.setRating(rating);
 			TextView versionText = (TextView) view
 					.findViewById(R.id.review_version);
-			versionText.setText("Version: " + version);
+			versionText.setText(HomeActivity.ha.getResources().getString(R.string.version)+": " + version);
 			parent.addView(view);
 			LinearLayout responseLayout = (LinearLayout) view
 					.findViewById(R.id.review_author_response);

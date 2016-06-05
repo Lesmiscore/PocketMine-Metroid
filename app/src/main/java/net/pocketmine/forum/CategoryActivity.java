@@ -86,8 +86,7 @@ public class CategoryActivity extends AppCompatActivity {
 
 	public class PluginsTabs extends FragmentPagerAdapter {
 
-		public String[] tabs = { "Featured", "Best Plugins", "Top Plugins",
-				"Top New Plugins", "Recently updated" };
+		public String[] tabs = getResources().getStringArray(R.array.forum_categories);
 
 		public PluginsTabs(FragmentManager fm) {
 			super(fm);

@@ -172,4 +172,48 @@
 	<!--WhitelistActivity-->
 	<string name="whitelist_player">Whitelist player</string>
 	<string name="whitelist_dialog">Write the player name, which you want to whitelist.</string>
+	
+	
+	<!--CategoryActivity-->
+	<string-array name="forum_categories">
+		<item>"Featured"</item>, <item>"Best Plugins"</item>, <item>"Top Plugins"</item>,
+		<item>"Top New Plugins"</item>, <item>"Recently updated"</item>
+	</string-array>
+	<!--DetailsActivity-->
+	<string name="downloads">Downloads</string>
+	<string name="downloading">Downloading...</string>
+	<string name="stopserver_download">To download a plugin, stop the server first.</string>
+	<string name="download_upper">DOWNLOAD</string>
+	<string name="uninstall_upper">UNINSTALL</string>
+	<string name="unknown_ext">Unknown (External site)</string>
+	<string name="cur_rate">Current rating</string>
+	<string name="size">Size</string>
+	<string name="extension">Extension</string>
+	<string name="support">Support</string>
+	<string name="plugin_page">Plugin\'s page</string>
+	<string name="ext_page">External page</string>
+	<!--DownloadService-->
+	<string name="plugin_download">Plugin download</string>
+	<string name="dl_plugin_failed">Failed to download the plugin.</string>
+	<!--PluginsActivity-->
+	<string name="search_plugin">Search for plugins</string>
+	<string name="enter_3_chr">Enter at least 3 characters.</string>
+	<string name="no_match">No matches found.</string>
+	<string-array name="forum_plugins">
+		<item>"Categories"</item>, <item>"Home"</item>, <item>"Updates"</item>, <item>"Featured"</item>,
+		<item>"Essential"</item>, <item>"Best Plugins"</item>, <item>"Top Plugins"</item>, <item>"Top New Plugins"</item>,
+		<item>"Recently updated"</item>
+	</string-array>
+	<string-array name="forum_plugins_categories">
+		<item>"Admin Tools"</item>, <item>"Anti-Griefing Tools"</item>,
+		<item>"Chat Related"</item>, <item>"Developer Tools"</item>, <item>"Economy"</item>,
+		<item>"Fun"</item>, <item>"General"</item>, <item>"Informational"</item>, <item>"Mechanics"</item>,
+		<item>"Miscellaneous"</item>, <item>"Teleportation"</item>,
+		<item>"World Editing and Management"</item>, <item>"World Generators"</item>
+	</string-array>
+	
+	
+	
+	
+	<string name="system_date_format">"d MMM yyyy"</string>
 </resources>
