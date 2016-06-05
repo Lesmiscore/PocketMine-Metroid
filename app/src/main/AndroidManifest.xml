@@ -25,7 +25,7 @@
         <activity
             android:name="net.pocketmine.server.HomeActivity"
             android:label="@string/activity_name"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
+            android:theme="@style/AppTheme.Black" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -36,24 +36,24 @@
             android:name="net.pocketmine.server.About"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="About PocketMine-MP for Android"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
+            android:theme="@style/AppTheme.Black" >
         </activity>
         <activity
             android:name="net.pocketmine.server.InstallActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_install"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
+            android:theme="@style/AppTheme.Black" >
         </activity>
         <activity
             android:name="net.pocketmine.server.FileManagerActivity"
             android:label="@string/title_activity_file_manager"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
+            android:theme="@style/AppTheme.Black" >
         </activity>
         <activity
             android:name="net.pocketmine.server.VersionManagerActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_version_manager"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
+            android:theme="@style/AppTheme.Black" >
         </activity>
 
         <service
@@ -71,25 +71,25 @@
             android:name="net.pocketmine.server.LogActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_log"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
+            android:theme="@style/AppTheme.Black" >
         </activity>
         <activity
             android:name="net.pocketmine.server.ConfigActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_config"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
+            android:theme="@style/AppTheme.Black" >
         </activity>
         <activity
             android:name="net.pocketmine.server.WhitelistActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_whitelist"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
+            android:theme="@style/AppTheme.Black" >
         </activity>
         <activity
             android:name="net.pocketmine.forum.PluginsActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_plugins"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
+            android:theme="@style/AppTheme.Cyan" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -105,25 +105,25 @@
             android:name="net.pocketmine.forum.SearchResultsActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_search_results"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
+            android:theme="@style/AppTheme.Cyan" >
         </activity>
         <activity
             android:name="net.pocketmine.forum.CategoryActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_category"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
+            android:theme="@style/AppTheme.Cyan" >
         </activity>
         <activity
             android:name="net.pocketmine.forum.DetailsActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_details"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
+            android:theme="@style/AppTheme.Cyan" >
         </activity>
         <activity
             android:name="net.pocketmine.forum.ReviewActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_review"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
+            android:theme="@style/AppTheme.Cyan" >
         </activity>
         <activity
             android:name="net.pocketmine.forum.PluginsSettingsActivity"
@@ -139,7 +139,7 @@
             android:name="net.pocketmine.server.PhpVersionSelectorActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/php_select_version"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
+            android:theme="@style/AppTheme.Black" >
         </activity>
     </application>
 </manifest>
