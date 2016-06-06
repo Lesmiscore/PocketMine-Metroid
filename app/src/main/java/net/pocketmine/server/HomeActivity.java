@@ -199,8 +199,7 @@ public class HomeActivity extends AppCompatActivity {
 								return sAddr;
 						} else {
 							if (!isIPv4) {
-								int delim = sAddr.indexOf('%'); // drop ip6 port
-																// suffix
+								int delim = sAddr.indexOf('%');
 								return delim < 0 ? sAddr : sAddr.substring(0,
 										delim);
 							}

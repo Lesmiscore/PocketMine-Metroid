@@ -18,15 +18,8 @@ import android.support.v7.app.*;
 public class About extends AppCompatActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-
-		//requestWindowFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.aboutus);
-
-		// Load partially transparent black background
-		//getSupportActionBar().setBackgroundDrawable(
-		//		getResources().getDrawable(R.drawable.ab_bg_black));
-
 		WebView wView = (WebView) findViewById(R.id.about_us_webview);
 		wView.loadUrl("file:///android_asset/about.html");
 	}

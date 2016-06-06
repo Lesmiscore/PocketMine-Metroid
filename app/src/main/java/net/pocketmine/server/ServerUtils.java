@@ -44,14 +44,6 @@ public final class ServerUtils {
 
 	}
 
-	/**
-	 * Instead of killing process by its PID you can use this method to kill
-	 * process by specifying its name
-	 * 
-	 * @param mProcessName
-	 *            Name Of Process that you want to kill
-	 * @return boolean
-	 */
 	final public static Boolean killProcessByName(String mProcessName) {
 
 		return execCommand(getAppDirectory() + "/killall " + mProcessName);
@@ -70,7 +62,6 @@ public final class ServerUtils {
 			// do there the rest
 			return true;
 		}
-
 		return false;
 	}
 
@@ -185,19 +176,16 @@ public final class ServerUtils {
 															"<", "&lt;")
 															.replace(">",
 																	"&gt;")));
-
 											if (line.contains("] logged in with entity id ")
 													|| line.contains("] logged out due to ")) {
 												refreshPlayers();
 											}
 										}
-
 										s = new StringBuilder();
 									} else {
 										s.append(buffer[i]);
 									}
 								}
-
 							}
 						} catch (Exception e) {
 							e.printStackTrace();
@@ -209,12 +197,10 @@ public final class ServerUtils {
 							}
 						}
 					}
-
 					LogActivity.log(mContext.getResources().getString(R.string.log_stopped));
 					HomeActivity.stopNotifyService();
 					HomeActivity.hideStats();
 				}
-
 			};
 			tMonitor.start();
 
@@ -226,9 +212,7 @@ public final class ServerUtils {
 			HomeActivity.hideStats();
 			killProcessByName("php");
 		}
-
 		return;
-
 	}
 
 	public static String getStat(String line, String stat) {
@@ -251,48 +235,20 @@ public final class ServerUtils {
 		executeCMD("list");
 	}
 
-	/**
-	 * 
-	 * @param mCommand
-	 *            hold the command which will be executed by invoking {@link
-	 *            Runtime.getRuntime.exec(...)}
-	 * @return boolean
-	 * @throws IOException
-	 *             if it unable to execute the command
-	 */
-
 	final public static boolean execCommand(String mCommand) {
-
-		/*
-		 * Create a new Instance of Runtime
-		 */
 		Runtime r = Runtime.getRuntime();
 		try {
-			/**
-			 * Executes the command
-			 */
 			r.exec(mCommand);
-
 		} catch (java.io.IOException e) {
-
 			Log.e(TAG, "execCommand", e);
-
 			r = null;
-
 			return false;
 		}
-
 		return true;
-
 	}
 
 	final static private void setPermission() {
 		try {
-			/*
-			execCommand("/system/bin/chmod 777 " + getAppDirectory() + "/php");
-			execCommand("/system/bin/chmod 777 " + getAppDirectory()
-					+ "/killall");
-			*/
 			for(File f:new File(getAppDirectory()).listFiles()){
 				Log.d("setPermission",f.getAbsolutePath());
 				execCommand("/system/bin/chmod 777 "+f.getAbsolutePath());

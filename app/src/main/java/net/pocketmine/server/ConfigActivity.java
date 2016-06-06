@@ -33,7 +33,6 @@ import android.support.v7.app.*;
 import android.view.*;
 
 public class ConfigActivity extends AppCompatActivity {
-
 	private Boolean install = false;
 
 	public LinkedHashMap<String, String> values = null;
@@ -61,7 +60,6 @@ public class ConfigActivity extends AppCompatActivity {
 
 		final Button saveBtn = (Button) findViewById(R.id.config_save);
 		saveBtn.setOnClickListener(new OnClickListener() {
-
 			@Override
 			public void onClick(View arg0) {
 				save();
@@ -71,7 +69,6 @@ public class ConfigActivity extends AppCompatActivity {
 
 		final Button cancelBtn = (Button) findViewById(R.id.config_cancel);
 		cancelBtn.setOnClickListener(new OnClickListener() {
-
 			@Override
 			public void onClick(View arg0) {
 				finish();
@@ -83,7 +80,6 @@ public class ConfigActivity extends AppCompatActivity {
 		final ToggleButton spawnprotect_toggle = (ToggleButton) findViewById(R.id.config_spawnprotect_enable);
 		spawnprotect_toggle
 				.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-
 					@Override
 					public void onCheckedChanged(CompoundButton sender,
 							boolean checked) {
@@ -96,12 +92,8 @@ public class ConfigActivity extends AppCompatActivity {
 						}
 					}
 				});
-		final Button whitelist_edit = (Button) findViewById(R.id.config_whitelist_edit); // no
-																							// need
-																							// to
-																							// disable
+		final Button whitelist_edit = (Button) findViewById(R.id.config_whitelist_edit);
 		whitelist_edit.setOnClickListener(new OnClickListener() {
-
 			@Override
 			public void onClick(View v) {
 				startActivity(new Intent(ConfigActivity.this,
@@ -128,7 +120,6 @@ public class ConfigActivity extends AppCompatActivity {
 		final TextView viewDistanceValue = (TextView) findViewById(R.id.config_distance_value);
 		final TextView viewDistanceWarning = (TextView) findViewById(R.id.config_distance_warning);
 		viewDistance.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
-
 			Boolean displayingWarning = true;
 
 			@Override
@@ -185,8 +176,7 @@ public class ConfigActivity extends AppCompatActivity {
 
 			try {
 				spawnprotect.setText(Integer.parseInt(values
-						.get("spawn-protection")) + ""); // no, that isn't a
-															// nonsense
+						.get("spawn-protection")) + "");
 				spawnprotect_toggle.setChecked(true);
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -200,8 +190,7 @@ public class ConfigActivity extends AppCompatActivity {
 		setValue(R.id.config_desc, "description",
 				"Server made using PocketMine-MP");
 		setValue(R.id.config_motd, "motd", "Welcome @player to this server!");
-		//setValue(R.id.config_ip, "server-ip", "");
-		// *server-type
+		
 		ram64.setChecked(false);
 		ram128.setChecked(false);
 		ram256.setChecked(false);
@@ -231,7 +220,7 @@ public class ConfigActivity extends AppCompatActivity {
 			ram = "128";
 		}
 
-		// *last-update
+		
 		setValue(R.id.config_achievements, "announce-player-achievements", true);
 
 		if (values.containsKey("view-distance")) {
@@ -248,8 +237,7 @@ public class ConfigActivity extends AppCompatActivity {
 			viewDistance.setProgress(7); // 10-3 = 7
 		}
 		setValue(R.id.config_fly, "allow-flight", false);
-		// *spawn-monsters
-		// *spawn-mobs
+		
 		setValue(R.id.config_hardcore, "hardcore", false);
 		setValue(R.id.config_pvp, "pvp", true);
 
