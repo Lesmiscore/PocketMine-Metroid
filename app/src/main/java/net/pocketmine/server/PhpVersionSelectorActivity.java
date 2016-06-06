@@ -17,8 +17,10 @@ public class PhpVersionSelectorActivity extends AppCompatListActivity {
 		setListAdapter(pva);
 		pva.add(new PhpVersionEntry("PHP 5","data.zip"));
 		pva.add(new PhpVersionEntry("PHP 7","php7.zip"));
-		pva.add(new PhpVersionEntry("PHP 5 (Experimental)","25.zip"));
-		pva.add(new PhpVersionEntry("PHP 7 (Experimental)","41.zip"));
+		pva.add(new PhpVersionEntry("PHP 5 ARMv6(Experimental)","bin.5.armv6.zip"));
+		pva.add(new PhpVersionEntry("PHP 5 ARMv7(Experimental)","bin.5.armv7.zip"));
+		pva.add(new PhpVersionEntry("PHP 7 ARMv6(Experimental)","bin.7.armv6.zip"));
+		pva.add(new PhpVersionEntry("PHP 7 ARMv7(Experimental)","bin.7.armv7.zip"));
 		getListView().setOnItemClickListener(pva);
 	}
 	
