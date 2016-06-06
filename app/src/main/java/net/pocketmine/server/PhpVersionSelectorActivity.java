@@ -32,8 +32,8 @@ public class PhpVersionSelectorActivity extends AppCompatListActivity {
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
 			// TODO: Implement this method
-			View v=getLayoutInflater().inflate(android.R.layout.simple_expandable_list_item_1,null);
-			((TextView)v.findViewById(android.R.id.text1)).setText(getItem(position).version);
+			View v=getLayoutInflater().inflate(R.layout.text_view_only,null);
+			((TextView)v.findViewById(R.id.text)).setText(getItem(position).version);
 			return v;
 		}
 
