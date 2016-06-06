@@ -155,6 +155,11 @@
 	<string name="ban_player_title">Ban Player...</string>
 	<string name="ban_player_ip">Ban Player IP</string>
 	<string name="developer">Developer</string>
+	<string-array name="ban_player_modes">
+		<item>@string/ban_player</item>
+		<item>@string/ban_player_ip</item>
+		<item>@android:string/cancel</item>
+	</string-array>
 	<!--InstallerAsync-->
 	<string name="delete_previous">Deleting previous version...</string>
 	<string name="extracting">"Extracting: "</string>

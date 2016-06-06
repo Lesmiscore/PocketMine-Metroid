@@ -393,8 +393,7 @@ public class HomeActivity extends AppCompatActivity {
 											banBtn.getContext());
 									builder.setTitle(R.string.ban_player_title);
 									builder.setItems(
-											new CharSequence[] { ha.getResources().getString(R.string.ban_player),
-													ha.getResources().getString(R.string.ban_player_ip), ha.getResources().getString(android.R.string.cancel) },
+											ha.getResources().getStringArray(R.array.ban_player_modes),
 											new DialogInterface.OnClickListener() {
 
 												@Override
