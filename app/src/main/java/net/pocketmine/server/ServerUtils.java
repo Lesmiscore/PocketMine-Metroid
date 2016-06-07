@@ -93,6 +93,7 @@ public final class ServerUtils {
 			serverProc = builder.start();
 			stdout = serverProc.getInputStream();
 			stdin = serverProc.getOutputStream();
+			Log.i(TAG, "PHP is started");
 
 			LogActivity.log(mContext.getResources().getString(R.string.log_starting));
 
@@ -203,8 +204,6 @@ public final class ServerUtils {
 				}
 			};
 			tMonitor.start();
-
-			Log.i(TAG, "PHP is started");
 		} catch (java.lang.Exception e) {
 			Log.e(TAG, "Unable to start PHP", e);
 			LogActivity.log(mContext.getResources().getString(R.string.log_php_error));
