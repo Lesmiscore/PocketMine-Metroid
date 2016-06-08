@@ -130,7 +130,7 @@ public enum SoftwareKind
 			return UnzipInstaller.UNZIP_SRC_DIR;
 		}
 	};
-	public SoftwareKind(){
+	SoftwareKind(){
 		
 	}
 	public abstract String getDownloadAddress()throws IOException;
