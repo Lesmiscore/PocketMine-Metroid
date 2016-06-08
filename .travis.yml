@@ -1,5 +1,7 @@
 language: android
 sudo: required
+before-script:
+  - 'chmod a+x ./gradlew'
 android:
   components:
     - platform-tools
