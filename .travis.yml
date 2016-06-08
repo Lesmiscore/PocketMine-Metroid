@@ -1,6 +1,6 @@
 language: android
 sudo: required
-before-script:
+before_script:
   - 'chmod a+x ./gradlew'
 android:
   components:
