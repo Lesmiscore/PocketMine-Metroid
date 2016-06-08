@@ -4,6 +4,8 @@ before_script:
   - 'chmod a+x ./gradlew'
 script:
   - './gradlew build'
+notifications:
+  email: false
 android:
   components:
     - platform-tools
