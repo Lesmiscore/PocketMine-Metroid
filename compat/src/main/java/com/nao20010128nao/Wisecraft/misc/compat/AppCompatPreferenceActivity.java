@@ -1,5 +1,4 @@
-package krsw.device.locker;
-
+package com.nao20010128nao.Wisecraft.misc.compat;
 import android.view.*;
 
 import android.content.res.Configuration;

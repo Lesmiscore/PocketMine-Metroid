@@ -18,7 +18,7 @@ import android.text.TextUtils;
 import java.util.List;
 
 import com.nao20010128nao.PM_Metroid.R;
-import krsw.device.locker.*;
+import com.nao20010128nao.Wisecraft.misc.compat.*;
 
 /**
  * A {@link PreferenceActivity} that presents a set of application settings. On
