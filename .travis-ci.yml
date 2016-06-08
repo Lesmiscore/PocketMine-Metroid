@@ -1,0 +1,10 @@
+language: android
+android:
+  components:
+    - platform-tools
+    - tools
+    - android-19
+    - build-tools-23.0.2
+    - extra-android-m2repository
+  licences:
+    - 'android-sdk-license-.+'
