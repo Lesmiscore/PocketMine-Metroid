@@ -35,7 +35,7 @@
         <activity
             android:name="net.pocketmine.server.About"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:label="About PocketMine-MP for Android"
+            android:label="@string/about_app"
             android:theme="@style/AppTheme.Black" >
         </activity>
         <activity
@@ -59,12 +59,12 @@
         <service
             android:name="net.pocketmine.server.ServerService"
             android:icon="@drawable/ic_launcher"
-            android:label="Server Service" >
+            android:label="@string/server_service" >
         </service>
         <service
             android:name="net.pocketmine.forum.DownloadService"
             android:icon="@drawable/ic_launcher"
-            android:label="Download Service" >
+            android:label="@string/download_service" >
         </service>
 
         <activity

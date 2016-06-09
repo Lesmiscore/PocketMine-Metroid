@@ -9,6 +9,9 @@
     <string name="install_bin">Installing PocketMine-MP for Android...</string>
     <string name="bin_installed">PocketMine-MP for Android was successfully installed</string>
     <string name="bin_error">Unable to install PocketMine for Android</string>
+	<string name="about_app">About PocketMine-MP for Android</string>
+	<string name="server_service">Server Service</string>
+	<string name="download_service">Download Service</string>
     <!-- Action bar menus -->
     <string name="abs_settings">Settings</string>
     <string name="abs_file_manager">File Manager</string>

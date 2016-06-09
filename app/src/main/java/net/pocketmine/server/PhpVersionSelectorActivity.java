@@ -28,7 +28,7 @@ public class PhpVersionSelectorActivity extends AppCompatListActivity {
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
 			// TODO: Implement this method
-			View v=getLayoutInflater().inflate(R.layout.text_view_only,null);
+			View v=getLayoutInflater().inflate(com.nao20010128nao.PM_Metroid.R.layout.text_view_only,null);
 			((TextView)v.findViewById(R.id.text)).setText(getItem(position).version);
 			return v;
 		}
