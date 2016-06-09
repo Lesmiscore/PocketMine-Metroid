@@ -19,6 +19,10 @@ import android.widget.Toast;
 import android.support.v7.app.*;
 import android.view.*;
 import android.graphics.*;
+import net.pocketmine.server.log.buttons.*;
+import android.support.v4.widget.*;
+import android.widget.*;
+import android.support.v4.view.*;
 
 @SuppressWarnings("deprecation")
 @android.annotation.TargetApi(Build.VERSION_CODES.GINGERBREAD)
@@ -28,16 +32,36 @@ public class LogActivity extends AppCompatActivity {
 	public static ScrollView sv;
 	public static SpannableStringBuilder currentLog = new SpannableStringBuilder();
 
+	DrawerLayout drawer;
+	boolean drawerOpened;
+	LinearLayout commandButtons;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_log);
+		setContentView(R.layout.log_main_new);
 		logActivity = this;
 		TextView logTV = (TextView) findViewById(R.id.logTextView);
 		logTV.setText(currentLog);
 		logTV.setTypeface(Typeface.MONOSPACE);
 
 		sv = (ScrollView) findViewById(R.id.logScrollView);
+		drawer=(DrawerLayout)findViewById(R.id.mainDrawer);
+		commandButtons=(LinearLayout)findViewById(R.id.commandButtons);
+		drawer.setDrawerListener(new DrawerLayout.DrawerListener(){
+				public void onDrawerSlide(View v, float slide) {
+					ViewCompat.setAlpha(commandButtons,slide);
+				}
+				public void onDrawerStateChanged(int state) {
+
+				}
+				public void onDrawerClosed(View v) {
+					drawerOpened = false;
+				}
+				public void onDrawerOpened(View v) {
+					drawerOpened = true;
+				}
+		});
 
 		Button btnCmd = (Button) findViewById(R.id.runCommand);
 		btnCmd.setOnClickListener(new OnClickListener() {
@@ -45,14 +69,12 @@ public class LogActivity extends AppCompatActivity {
 			@Override
 			public void onClick(View arg0) {
 				EditText et = (EditText) findViewById(R.id.textCmd);
-				log(">"
-						+ et.getText().toString().replace("&", "&amp;")
-								.replace("<", "&lt;").replace(">", "&gt;"));
-				ServerUtils.executeCMD(et.getText().toString());
+				performSend(et.getText().toString());
 				et.setText("");
 			}
 		});
 
+		applyHandlers();
 	}
 
 	final static int CLEAR_CODE = 143;
@@ -214,4 +236,34 @@ public class LogActivity extends AppCompatActivity {
 		}
 	}
 
+	public void performSend(String s){
+		log(">" + s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"));
+		ServerUtils.executeCMD(s);
+	}
+	
+	private void applyHandlers() {
+		new Stop(this);
+		new Op(this);
+		new Deop(this);
+		new Kick(this);
+		new Ban(this);
+		new BanIp(this);
+		new Pardon(this);
+		new PardonIp(this);
+		new Time_Set(this);
+		new Gamemode(this);
+		new Save_All(this);
+		new Save_On(this);
+		new Save_Off(this);
+		new Give(this);
+		new Clear(this);
+		new Kill(this);
+		new Tell(this);
+		new Tp(this);
+		new Xp(this);
+		new DefaultGamemode(this);
+		new Weather(this);
+		new Me(this);
+		new Banlist(this);
+	}
 }

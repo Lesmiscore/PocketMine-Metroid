@@ -74,7 +74,7 @@ public class HomeActivity extends AppCompatActivity {
 	public static String download = "Unknown";
 	public static String upload = "Unknown";
 	public static String tps = "Unknown";
-	public static String[] players = null;
+	public static String[] players = null,banlist,bannedIps;
 
 	/**
 	 * Buttons for managing server state
@@ -419,10 +419,17 @@ public class HomeActivity extends AppCompatActivity {
 					}
 				}
 			});
-
 		}
 	}
 
+	public static void updateBanList(String... list){
+		banlist=list;
+	}
+	
+	public static void updateBanIpsList(String... list){
+		bannedIps=list;
+	}
+	
 	public static void stopNotifyService() {
 
 		if (ha != null && servInt != null) {

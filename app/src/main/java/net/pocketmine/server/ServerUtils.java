@@ -121,34 +121,26 @@ public final class ServerUtils {
 										String lineNoDate = "";
 										int iof = line.indexOf(" ");
 										if (iof != -1)
-											lineNoDate = line
-													.substring(iof + 1);
-										if (lineNoDate
-												.startsWith("[CMD] There are ")
-												&& requestPlayerRefresh
-												&& requestPlayerRefreshCount == -1) {
+											lineNoDate = line.substring(iof + 1);
+										if (lineNoDate.contains("There are ")
+												&& lineNoDate.endsWith("online:")
+												&& (requestPlayerRefresh|requestBanlistRefresh|requestBanIpsRefresh)
+												&& !listHeadDetected) {
 
 											try {
 												String num = lineNoDate
-														.substring("[CMD] There are "
+														.substring("There are "
 																.length());
 												num = num.substring(0,
 														num.indexOf("/"));
-												requestPlayerRefreshCount = Integer
-														.parseInt(num);
-
-												if (requestPlayerRefreshCount == 0) {
-													HomeActivity
-															.updatePlayerList(null);
-													requestPlayerRefresh = false;
-												}
+												listHeadDetected=true;
 											} catch (Exception e) {
 												e.printStackTrace();
 											}
 										} else if (lineNoDate
-												.startsWith("[CMD] ")
+												.startsWith("")
 												&& requestPlayerRefresh
-												&& requestPlayerRefreshCount != -1) {
+												&& listHeadDetected) {
 
 											String player = lineNoDate
 													.substring(6);
@@ -224,16 +216,26 @@ public final class ServerUtils {
 		return result;
 	}
 
-	private static Boolean requestPlayerRefresh = false;
-	private static int requestPlayerRefreshCount = -1;
-
+	private static boolean requestPlayerRefresh = false,requestBanlistRefresh=false,requestBanIpsRefresh=false,listHeadDetected=false;
+	
 	public static void refreshPlayers() {
 		System.out.println("Refreshing player list");
-		requestPlayerRefreshCount = -1;
 		requestPlayerRefresh = true;
 		executeCMD("list");
 	}
-
+	
+	public static void refreshBanlist() {
+		System.out.println("Refreshing banned player list");
+		requestBanlistRefresh = true;
+		executeCMD("banlist players");
+	}
+	
+	public static void refreshBannedIps() {
+		System.out.println("Refreshing banned ips list");
+		requestBanlistRefresh = true;
+		executeCMD("banlist ips");
+	}
+	
 	final public static boolean execCommand(String mCommand) {
 		Runtime r = Runtime.getRuntime();
 		try {
