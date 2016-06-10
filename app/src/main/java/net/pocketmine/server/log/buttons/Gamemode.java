@@ -8,6 +8,7 @@ import java.io.*;
 import net.pocketmine.server.*;
 
 import com.nao20010128nao.PM_Metroid.R;
+import com.google.rconclient.rcon.*;
 
 public class Gamemode extends NameSelectAction {
 	String player=null;
@@ -52,7 +53,7 @@ public class Gamemode extends NameSelectAction {
 	}
 
 	@Override
-	public String[] onPlayersList() throws IOException,InterruptedException {
+	public String[] onPlayersList() throws IOException,AuthenticationException,InterruptedException {
 		// TODO: Implement this method
 		if (!isPlayer)
 			return getResources().getStringArray(R.array.gamemodeConst);

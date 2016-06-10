@@ -8,6 +8,7 @@ import net.pocketmine.server.Utils.*;
 
 import static net.pocketmine.server.Utils.Utils.*;
 import android.support.v7.app.*;
+import com.google.rconclient.rcon.*;
 
 public class Give extends NameSelectAction {
 	String   amount       ,player       ,item       ;
@@ -124,7 +125,7 @@ public class Give extends NameSelectAction {
 	}
 
 	@Override
-	public String[] onPlayersList() throws IOException,InterruptedException {
+	public String[] onPlayersList() throws IOException,AuthenticationException,InterruptedException {
 		// TODO: Implement this method
 		if (list == null) {
 			return super.onPlayersList();

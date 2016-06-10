@@ -10,6 +10,7 @@ import net.pocketmine.server.Utils.*;
 
 import com.nao20010128nao.PM_Metroid.R;
 import android.support.v7.app.*;
+import com.google.rconclient.rcon.*;
 
 public abstract class NameSelectAction extends BaseAction {
 	EditText name;
@@ -72,11 +73,9 @@ public abstract class NameSelectAction extends BaseAction {
 		}.execute();
 		return v;
 	}
-	public String[] onPlayersList()throws IOException,InterruptedException {
-		String[] old=HomeActivity.players;
-		ServerUtils.refreshPlayers();
-		while(HomeActivity.players==old)Thread.sleep(100);
-		return HomeActivity.players;
+	public String[] onPlayersList()throws IOException,AuthenticationException,InterruptedException {
+		if(ServerUtils.controller==null)return Constant.EMPTY_STRING_ARRAY;
+		return ServerUtils.controller.list();
 	}
 	public String onPlayerNameHint() {
 		return null;

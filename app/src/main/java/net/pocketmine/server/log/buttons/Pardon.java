@@ -7,6 +7,7 @@ import net.pocketmine.server.*;
 import net.pocketmine.server.Utils.*;
 
 import com.nao20010128nao.PM_Metroid.R;
+import com.google.rconclient.rcon.*;
 
 public class Pardon extends NameSelectAction {
 	public Pardon(LogActivity a) {
@@ -28,12 +29,10 @@ public class Pardon extends NameSelectAction {
 	}
 
 	@Override
-	public String[] onPlayersList() throws IOException,InterruptedException {
+	public String[] onPlayersList() throws IOException,AuthenticationException,InterruptedException {
 		// TODO: Implement this method
-		String[] old=HomeActivity.banlist;
-		ServerUtils.refreshPlayers();
-		while(HomeActivity.banlist==old)Thread.sleep(100);
-		return HomeActivity.players;
+		if(ServerUtils.controller==null)return Constant.EMPTY_STRING_ARRAY;
+		return ServerUtils.controller.banList();
 	}
 
 	@Override

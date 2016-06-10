@@ -18,6 +18,9 @@ import android.content.Context;
 import android.util.Log;
 import com.nao20010128nao.PM_Metroid.*;
 import java.io.*;
+import com.google.rconclient.rcon.*;
+import java.util.*;
+import net.pocketmine.server.Utils.*;
 
 public final class ServerUtils {
 
@@ -25,6 +28,7 @@ public final class ServerUtils {
 	static Context mContext;
 	private static java.io.OutputStream stdin;
 	private static java.io.InputStream stdout;
+	public static RCon controller;
 
 	final public static void setContext(Context mContext) {
 		ServerUtils.mContext = mContext;
@@ -122,36 +126,7 @@ public final class ServerUtils {
 										int iof = line.indexOf(" ");
 										if (iof != -1)
 											lineNoDate = line.substring(iof + 1);
-										if (lineNoDate.contains("There are ")
-												&& lineNoDate.endsWith("online:")
-												&& (requestPlayerRefresh|requestBanlistRefresh|requestBanIpsRefresh)
-												&& !listHeadDetected) {
-
-											try {
-												String num = lineNoDate
-														.substring("There are "
-																.length());
-												num = num.substring(0,
-														num.indexOf("/"));
-												listHeadDetected=true;
-											} catch (Exception e) {
-												e.printStackTrace();
-											}
-										} else if (lineNoDate
-												.startsWith("")
-												&& requestPlayerRefresh
-												&& listHeadDetected) {
-
-											String player = lineNoDate
-													.substring(6);
-											String[] players = player
-													.split(", ");
-
-											HomeActivity
-													.updatePlayerList(players);
-
-											requestPlayerRefresh = false;
-										} else if (c == '\u0007'
+										if (c == '\u0007'
 												&& line.startsWith("\u001B]0;")) {
 											line = line.substring(4);
 											System.out
@@ -190,6 +165,7 @@ public final class ServerUtils {
 							}
 						}
 					}
+					controller=null;
 					LogActivity.log(mContext.getResources().getString(R.string.log_stopped));
 					HomeActivity.stopNotifyService();
 					HomeActivity.hideStats();
@@ -216,24 +192,73 @@ public final class ServerUtils {
 		return result;
 	}
 
-	private static boolean requestPlayerRefresh = false,requestBanlistRefresh=false,requestBanIpsRefresh=false,listHeadDetected=false;
-	
 	public static void refreshPlayers() {
 		System.out.println("Refreshing player list");
-		requestPlayerRefresh = true;
-		executeCMD("list");
+		Utils.prepareLooper();
+		new Thread(){
+			public void run(){
+				String s=executeCmdRcon("list");
+				if(s==null)return;
+				String[] lines=Utils.lines(s);
+				String[] players;
+				if(lines.length==2){
+					if("".equals(lines[1].trim())){
+						players=Constant.EMPTY_STRING_ARRAY;
+					}else{
+						players=lines[1].split(", ");
+					}
+				}else{
+					players=Constant.EMPTY_STRING_ARRAY;
+				}
+				HomeActivity.updatePlayerList(players);
+			}
+		}.start();
 	}
 	
 	public static void refreshBanlist() {
 		System.out.println("Refreshing banned player list");
-		requestBanlistRefresh = true;
-		executeCMD("banlist players");
+		Utils.prepareLooper();
+		new Thread(){
+			public void run(){
+				String s=executeCmdRcon("banlist players");
+				if(s==null)return;
+				String[] lines=Utils.lines(s);
+				String[] players;
+				if(lines.length==2){
+					if("".equals(lines[1].trim())){
+						players=Constant.EMPTY_STRING_ARRAY;
+					}else{
+						players=lines[1].split(", ");
+					}
+				}else{
+					players=Constant.EMPTY_STRING_ARRAY;
+				}
+				HomeActivity.updatePlayerList(players);
+			}
+		}.start();
 	}
 	
 	public static void refreshBannedIps() {
 		System.out.println("Refreshing banned ips list");
-		requestBanlistRefresh = true;
-		executeCMD("banlist ips");
+		Utils.prepareLooper();
+		new Thread(){
+			public void run(){
+				String s=executeCmdRcon("banlist ips");
+				if(s==null)return;
+				String[] lines=Utils.lines(s);
+				String[] players;
+				if(lines.length==2){
+					if("".equals(lines[1].trim())){
+						players=Constant.EMPTY_STRING_ARRAY;
+					}else{
+						players=lines[1].split(", ");
+					}
+				}else{
+					players=Constant.EMPTY_STRING_ARRAY;
+				}
+				HomeActivity.updatePlayerList(players);
+			}
+		}.start();
 	}
 	
 	final public static boolean execCommand(String mCommand) {
@@ -347,5 +372,34 @@ public final class ServerUtils {
 			Log.e(TAG, "Cannot execute: " + CCmd, e);
 
 		}
+	}
+	
+	public static String executeCmdRcon(String c){
+		if(!rconSupported())return null;
+		Map<String,String> prop=Utils.readPropertiesFile();
+		if(controller==null){
+			try {
+				controller = new RCon("localhost", Integer.valueOf(prop.get("server-port")), prop.get("rcon.password").toCharArray());
+			} catch (AuthenticationException|NumberFormatException|IOException e) {
+				e.printStackTrace();
+				return null;
+			}
+		}
+		try {
+			return controller.send(c);
+		} catch (IOException|IncorrectRequestIdException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	private static boolean rconSupported(){
+		Map<String,String> prop=Utils.readPropertiesFile();
+		if("on".equals(prop.get("enable-rcon"))){
+			if(!"".equals(prop.get("rcon.password"))){
+				return true;
+			}
+		}
+		return false;
 	}
 }
