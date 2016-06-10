@@ -113,6 +113,17 @@ public class LogActivity extends AppCompatActivity {
 		return true;
 	}
 
+	@Override
+	public void onBackPressed() {
+		// TODO: Implement this method
+		if(drawerOpened){
+			drawer.closeDrawers();
+			drawerOpened=false;
+		}else{
+			finish();
+		}
+	}
+
 	public static void log(final String whatToLog) {
 		StringBuilder formatted = new StringBuilder();
 
