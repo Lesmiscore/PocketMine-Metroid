@@ -107,7 +107,7 @@ public final class ServerUtils {
 							Charset.forName("UTF-8"));
 					BufferedReader br = new BufferedReader(reader);
 					LogActivity.log(mContext.getResources().getString(R.string.log_started));
-
+					LogActivity.updateRunningState(true);
 					while (isRunning()) {
 						try {
 							char[] buffer = new char[8192];
@@ -166,6 +166,7 @@ public final class ServerUtils {
 						}
 					}
 					controller=null;
+					LogActivity.updateRunningState(false);
 					LogActivity.log(mContext.getResources().getString(R.string.log_stopped));
 					HomeActivity.stopNotifyService();
 					HomeActivity.hideStats();

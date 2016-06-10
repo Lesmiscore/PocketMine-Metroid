@@ -23,6 +23,7 @@ import net.pocketmine.server.log.buttons.*;
 import android.support.v4.widget.*;
 import android.widget.*;
 import android.support.v4.view.*;
+import net.pocketmine.server.Utils.*;
 
 @SuppressWarnings("deprecation")
 @android.annotation.TargetApi(Build.VERSION_CODES.GINGERBREAD)
@@ -35,6 +36,7 @@ public class LogActivity extends AppCompatActivity {
 	DrawerLayout drawer;
 	boolean drawerOpened;
 	LinearLayout commandButtons;
+	boolean isRunning=ServerUtils.isRunning();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +76,7 @@ public class LogActivity extends AppCompatActivity {
 			}
 		});
 
+		updateRunningState(isRunning);
 		applyHandlers();
 	}
 
@@ -239,6 +242,17 @@ public class LogActivity extends AppCompatActivity {
 	public void performSend(String s){
 		log(">" + s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"));
 		ServerUtils.executeCMD(s);
+	}
+	
+	public static void updateRunningState(final boolean newState){
+		if(logActivity==null)return;
+		logActivity.runOnUiThread(new Runnable(){
+			public void run(){
+				logActivity.isRunning=newState;
+				for(View v:Utils.getChildren((ViewGroup)logActivity.findViewById(R.id.commandButtons)))
+					v.setEnabled(newState);
+			}
+		});
 	}
 	
 	private void applyHandlers() {

@@ -4,6 +4,7 @@ import java.io.*;
 import net.pocketmine.server.*;
 import android.util.*;
 import android.os.*;
+import android.view.*;
 
 public class Utils
 {
@@ -64,5 +65,10 @@ public class Utils
 		} catch (Throwable e) {
 			return Constant.EMPTY_STRING_ARRAY;
 		}
+	}
+	public static View[] getChildren(ViewGroup vg){
+		View[] views=new View[vg.getChildCount()];
+		for(int i=0;i<vg.getChildCount();i++)views[i]=vg.getChildAt(i);
+		return views;
 	}
 }
