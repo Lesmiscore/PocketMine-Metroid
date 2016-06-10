@@ -18,5 +18,6 @@
 	</style>
 	<style name="AppTheme.Cyan" parent="Theme.AppCompat.Light.DarkActionBar">
 		<item name="colorPrimary">#0078AA</item>
+		<item name="colorAccent">#0078AA</item>
 	</style>
 </resources>
