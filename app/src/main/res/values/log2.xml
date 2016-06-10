@@ -19,7 +19,7 @@
 
 	<string name="playertools">Player tools</string>
 	<string name="give">Give item</string>
-	<string name="clear">Take item</string>
+	<string name="take">Take item</string>
 	<string name="kill">Kill player</string>
 	<string name="tell">Tell to player</string>
 	<string name="tp">Teleport player</string>
@@ -54,7 +54,7 @@
 	<string name="setTimeHint">Number or string</string>
 	<string name="gamemodeAsk">Are you sure to set [PLAYER]\'s gamemode to [MODE]?</string>
 	<string name="gamemodeHint">Number or string</string>
-	<string name="player">Player:</string>
+	<string name="player.colon">Player:</string>
 	<string name="change">Change</string>
 	<string name="item">Item:</string>
 	<string name="amount">Amount:</string>
