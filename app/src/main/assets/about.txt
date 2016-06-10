@@ -1,0 +1,5 @@
+˜b˜lPocketMine-MP˜r is an open-source server software for Minecraft: Pocket Edition.
+Create a server directly on your Android device, extend its features and manage it easily using plugins. Open it to the internet and play with your friends!
+This application includes ˜lPHP˜r, ˜lBusyBox (only killall patches)˜r and ˜lPocketMine-MP˜r.
+This application itself is made by MrARM and PocketMine-MP (the server is made by the PocketMine team).
+This application is based on DroidPHP, created by Shushant Kumar and licensed under Apache License v2.0! Thank you!
