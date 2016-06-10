@@ -4,6 +4,8 @@ import com.nao20010128nao.Wisecraft.misc.compat.*;
 import net.pocketmine.server.*;
 import net.pocketmine.server.Utils.*;
 
+import com.nao20010128nao.PM_Metroid.R;
+
 public class Kick extends NameSelectAction {
 	public Kick(LogActivity a) {
 		super(a);

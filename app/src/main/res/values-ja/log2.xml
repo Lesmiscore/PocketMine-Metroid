@@ -19,7 +19,7 @@
 
 	<string name="playertools">プレイヤーツール</string>
 	<string name="give">アイテムをあげる</string>
-	<string name="clear">アイテムを剥奪</string>
+	<string name="take">アイテムを剥奪</string>
 	<string name="kill">プレイヤーを強制殺害</string>
 	<string name="tell">プレイヤーにプライベートメッセージを送信</string>
 	<string name="tp">プレイヤーを移動</string>
@@ -53,7 +53,7 @@
 	<string name="setTimeHint">数値もしくは文字列</string>
 	<string name="gamemodeAsk">[PLAYER]のゲームモードを[MODE]に設定してもよろしいですか?</string>
 	<string name="gamemodeHint">数値もしくは文字列</string>
-	<string name="player">プレイヤー:</string>
+	<string name="player.colon">プレイヤー:</string>
 	<string name="change">変更</string>
 	<string name="item">アイテム:</string>
 	<string name="amount">量:</string>

@@ -6,6 +6,8 @@ import com.nao20010128nao.Wisecraft.*;
 import com.nao20010128nao.PM_Metroid.*;
 import net.pocketmine.server.*;
 
+import com.nao20010128nao.PM_Metroid.R;
+
 public abstract class BaseAction extends ContextWrapper implements OnClickListener {
 	private LogActivity ra;
 	public BaseAction(LogActivity act) {

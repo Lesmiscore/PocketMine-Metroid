@@ -10,6 +10,8 @@ import static net.pocketmine.server.Utils.Utils.*;
 import android.support.v7.app.*;
 import com.google.rconclient.rcon.*;
 
+import com.nao20010128nao.PM_Metroid.R;
+
 public class Give extends NameSelectAction {
 	String   amount       ,player       ,item       ;
 	Button   changeAmount ,changePlayer ,changeItem ;
