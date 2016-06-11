@@ -193,7 +193,59 @@
 					android:textColor="#555"/>
 
 			</RelativeLayout>
+			<RelativeLayout
+				android:layout_height="wrap_content"
+				android:layout_width="wrap_content">
 
+				<TextView
+					android:id="@+id/software_genisys"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentLeft="true"
+					android:layout_alignParentRight="true"
+					android:layout_marginTop="16dp"
+					android:background="#ccc"
+					android:paddingBottom="16dip"
+					android:paddingLeft="@dimen/activity_horizontal_margin"
+					android:paddingRight="@dimen/activity_horizontal_margin"
+					android:paddingTop="16dip"
+					android:text="@string/software_genisys_latest"
+					android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+				<Button
+					android:id="@+id/download_genisys"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignBaseline="@+id/software_genisys"
+					android:layout_alignParentRight="true"
+					android:layout_marginRight="@dimen/activity_horizontal_margin"
+					android:text="@string/download"/>
+
+				<TextView
+					android:id="@+id/genisys_version"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentLeft="true"
+					android:layout_below="@+id/software_genisys"
+					android:layout_marginTop="14dp"
+					android:paddingLeft="@dimen/activity_horizontal_margin"
+					android:paddingRight="@dimen/activity_horizontal_margin"
+					android:text="@string/dummy_version"/>
+
+				<TextView
+					android:id="@+id/genisys_date"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_alignParentLeft="true"
+					android:layout_alignParentRight="true"
+					android:layout_below="@+id/genisys_version"
+					android:paddingLeft="@dimen/activity_horizontal_margin"
+					android:paddingRight="@dimen/activity_horizontal_margin"
+					android:text="@string/dummy_date"
+					android:textColor="#555"/>
+
+			</RelativeLayout>
+			
 		</LinearLayout>
 
 	</ScrollView>

@@ -117,6 +117,9 @@ public class VersionManagerActivity extends AppCompatActivity {
 							.format(d);
 					final String devDownloadURL = (String) devObj.get("download_url");
 					
+					final String genisysVersion=SoftwareKind.GENISYS_LATEST.getVersion();
+					final String genisysDate=SimpleDateFormat.getInstance().format(SoftwareKind.GENISYS_LATEST.getReleaseDate());
+					
 					runOnUiThread(new Runnable() {
 
 						@Override
@@ -130,7 +133,10 @@ public class VersionManagerActivity extends AppCompatActivity {
 							TextView devVersionView = (TextView) findViewById(R.id.dev_version);
 							TextView devDateView = (TextView) findViewById(R.id.dev_date);
 							Button devDownload = (Button) findViewById(R.id.download_dev);
-
+							TextView genisysVersionView = (TextView) findViewById(R.id.genisys_version);
+							TextView genisysDateView = (TextView) findViewById(R.id.genisys_date);
+							Button genisysDownload = (Button) findViewById(R.id.download_genisys);
+							
 							stableVersionView.setText(getResources().getString(R.string.version)+": "
 									+ stableVersion + " (API: " + stableAPI
 									+ ")");
@@ -161,7 +167,16 @@ public class VersionManagerActivity extends AppCompatActivity {
 									download(SoftwareKind.POCKETMINE_DEV);
 								}
 							});
-
+							
+							genisysVersionView.setText(getResources().getString(R.string.version)+": " + genisysVersion);
+							genisysDateView.setText(genisysDate);
+							genisysDownload.setOnClickListener(new OnClickListener() {
+									@Override
+									public void onClick(View v) {
+										download(SoftwareKind.GENISYS_LATEST);
+									}
+								});
+							
 							pbar.setVisibility(View.GONE);
 							scrollView.setVisibility(View.VISIBLE);
 							if (install) {

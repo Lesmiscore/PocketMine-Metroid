@@ -129,6 +129,7 @@
     <string name="dummy_date">1/1/1970</string>
     <string name="channel_beta">Beta</string>
     <string name="channel_dev">Development</string>
+	<string name="software_genisys_latest">Genisys (Latest)</string>
 	
 	
 	
