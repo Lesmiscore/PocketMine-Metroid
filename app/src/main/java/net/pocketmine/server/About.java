@@ -14,13 +14,37 @@ import android.webkit.WebView;
 
 import com.nao20010128nao.PM_Metroid.R;
 import android.support.v7.app.*;
+import android.widget.*;
+import java.io.*;
+import net.pocketmine.server.Utils.*;
 
 public class About extends AppCompatActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.aboutus);
-		WebView wView = (WebView) findViewById(R.id.about_us_webview);
-		wView.loadUrl("file:///android_asset/about.html");
+		TextView text = (TextView) findViewById(R.id.about_text);
+		
+		
+		StringWriter sw=new StringWriter();
+		BufferedReader br=null;
+		try {
+			br = new BufferedReader(new InputStreamReader(getResources().openRawResource(R.raw.about)));
+			char[] buf=new char[200];int r;
+			while(true){
+				r=br.read(buf);
+				if(r<=0)break;
+				sw.write(buf,0,r);
+			}
+			MinecraftFormattingCodeParser mfcp=new MinecraftFormattingCodeParser();
+			mfcp.loadFlags(sw.toString(),(byte)0);
+			text.setText(mfcp.build());
+		} catch (IOException e) {
+			
+		}finally{
+			try {
+				if (br != null)br.close();
+			} catch (IOException e) {}
+		}
 	}
 }
