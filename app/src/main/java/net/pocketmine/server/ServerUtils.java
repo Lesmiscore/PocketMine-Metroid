@@ -384,7 +384,7 @@ public final class ServerUtils {
 		}
 		try {
 			return controller.send(c);
-		} catch (IOException|IncorrectRequestIdException e) {
+		} catch (Throwable e) {
 			e.printStackTrace();
 			return null;
 		}
