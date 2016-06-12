@@ -17,6 +17,7 @@ public class SearchResultsActivity extends AppCompatActivity {
 
 	public ArrayList<PluginsActivity.Plugin> plugins = null;
 
+	String query;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -37,7 +38,7 @@ public class SearchResultsActivity extends AppCompatActivity {
 			return;
 		}
 
-		String query = getIntent().getStringExtra("query");
+		query = getIntent().getStringExtra("query");
 		if (query != null) {
 			getSupportActionBar().setTitle(query);
 		}
@@ -68,7 +69,7 @@ public class SearchResultsActivity extends AppCompatActivity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.search_results, menu);
-		PluginsActivity.addSearch(this, getSupportActionBar(), menu);
+		PluginsActivity.addSearch(this, getSupportActionBar(), menu,query);
 		return true;
 	}
 

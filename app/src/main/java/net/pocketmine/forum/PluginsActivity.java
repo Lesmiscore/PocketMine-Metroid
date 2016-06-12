@@ -345,7 +345,7 @@ public class PluginsActivity extends AppCompatActivity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.plugins, menu);
-		addSearch(this, getSupportActionBar(), menu);
+		addSearch(this, getSupportActionBar(), menu,null);
 		return true;
 	}
 
@@ -354,13 +354,14 @@ public class PluginsActivity extends AppCompatActivity {
 	}
 
 	public static void addSearch(final Activity activity, ActionBar actionBar,
-			Menu menu) {
+			Menu menu,String query) {
 
 		SearchView searchView = new SearchView(actionBar.getThemedContext());
 		searchView.setQueryHint(activity.getResources().getString(R.string.search_plugin));
 		AutoCompleteTextView searchText = (AutoCompleteTextView) searchView
 				.findViewById(R.id.search_src_text);
 		searchText.setHintTextColor(Color.WHITE);
+		if(query!=null)searchView.setQuery(query,false);
 		searchView.setOnQueryTextListener(new OnQueryTextListener() {
 
 			@Override
