@@ -91,7 +91,6 @@ public class HomeActivity extends AppCompatActivity {
 	public void onCreate(Bundle savedInstanceState) {
 
 		try {
-			setup();
 			super.onCreate(savedInstanceState);
 		} catch (Exception e) {
 			return;
@@ -517,44 +516,8 @@ public class HomeActivity extends AppCompatActivity {
 			startActivity(new Intent(mContext, LogActivity.class));
 		} else if (item.getItemId() == REINSTALL_PHP_CODE) {
 			startActivity(new Intent(mContext, PhpVersionSelectorActivity.class).putExtra("reinst",true));
-		} else if (item.getItemId() == DEV_CODE) {
-			startActivity(new Intent(mContext, DeveloperActivity.class));
 		}
 
 		return true;
 	}
-
-	void setup() throws Exception {
-		Class.forName("com.google.android" + ".vending" + ".licensing"
-				+ ".LicenseChecker");
-	}
-
-	public static void hangUp() {
-		ha.runOnUiThread(new Runnable() {
-
-			@Override
-			public void run() {
-				hangUp();
-			}
-		});
-	}
-
-	/*
-	 * final protected boolean isServerRunning() throws IOException {
-	 * InputStream is; java.io.BufferedReader bf; boolean isRunning = false; try
-	 * { is = Runtime.getRuntime().exec("ps").getInputStream(); bf = new
-	 * java.io.BufferedReader(new java.io.InputStreamReader(is));
-	 * 
-	 * String r; while ((r = bf.readLine()) != null) { if (r.contains("php")) {
-	 * isRunning = true; break; }
-	 * 
-	 * } is.close(); bf.close();
-	 * 
-	 * } catch (IOException e) { e.printStackTrace();
-	 * 
-	 * } return isRunning;
-	 * 
-	 * }
-	 */
-
 }

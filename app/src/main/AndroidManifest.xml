@@ -28,7 +28,6 @@
             android:theme="@style/AppTheme.Black" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -128,10 +127,6 @@
         <activity
             android:name="net.pocketmine.forum.PluginsSettingsActivity"
             android:label="@string/title_activity_plugins_settings" >
-        </activity>
-        <activity
-            android:name="net.pocketmine.server.DeveloperActivity"
-            android:label="@string/title_activity_developer" >
         </activity>
 		
 		
