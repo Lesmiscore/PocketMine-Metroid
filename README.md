@@ -15,4 +15,4 @@ This application is modified version of PocketMine-MP for Android.
 * Support ClearSky
 * Complete support of Material Design at all
 * Remote control via your browser
-* Change the directory of the PocketMine installation directory
+* Change the PocketMine installation directory
