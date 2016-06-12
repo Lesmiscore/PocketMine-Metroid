@@ -118,7 +118,7 @@ public class VersionManagerActivity extends AppCompatActivity {
 					final String devDownloadURL = (String) devObj.get("download_url");
 					
 					final String genisysVersion=SoftwareKind.GENISYS_LATEST.getVersion();
-					final String genisysDate=SimpleDateFormat.getInstance().format(SoftwareKind.GENISYS_LATEST.getReleaseDate());
+					final String genisysDate=SimpleDateFormat.getInstance().format(SoftwareKind.GENISYS_LATEST.getReleaseDate())+" UTC";
 					
 					runOnUiThread(new Runnable() {
 
@@ -302,10 +302,10 @@ public class VersionManagerActivity extends AppCompatActivity {
 			@Override
 			public void run() {
 				final ProgressDialog iDialog = new ProgressDialog(ctx);
-				iDialog.setMax(100);
-				iDialog.setTitle(R.string.dl_this_version);
+				iDialog.setMax(0);
+				iDialog.setTitle(R.string.ins_this_version);
 				iDialog.setMessage(getResources().getString(R.string.please_wait));
-				iDialog.setIndeterminate(false);
+				iDialog.setIndeterminate(true);
 				iDialog.setCancelable(false);
 				iDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
 				iDialog.show();

@@ -7,6 +7,8 @@ import org.jsoup.nodes.*;
 import org.jsoup.*;
 import org.jsoup.select.*;
 import java.text.*;
+import android.util.*;
+import com.nao20010128nao.OTC.*;
 
 public enum SoftwareKind
 {
@@ -133,10 +135,11 @@ public enum SoftwareKind
 		{
 			// https://raw.githubusercontent.com/iTXTech/Genisys/master/src/pocketmine/PocketMine.php
 			if(lastVers!=null)return lastVers;
+			String vers=null,api=null,codename=null,commit="00000000";
 			BufferedReader br=null;
 			try{
 				br=new BufferedReader(new InputStreamReader(new BufferedInputStream(new URL("https://raw.githubusercontent.com/iTXTech/Genisys/master/src/pocketmine/PocketMine.php").openConnection().getInputStream())));
-				String oneLine,vers=null,api=null,codename=null;
+				String oneLine;
 				while(null!=(oneLine=br.readLine())){
 					if(oneLine.contains("const VERSION = ")){
 						vers=oneLine.substring(oneLine.indexOf("\"")+1,oneLine.lastIndexOf("\""));
@@ -147,12 +150,22 @@ public enum SoftwareKind
 					if(oneLine.contains("const CODENAME = ")){
 						codename=oneLine.substring(oneLine.indexOf("\"")+1,oneLine.lastIndexOf("\""));
 					}
-					lastVers=vers+" (API: "+api+") "+codename;
 				}
 			}finally{
 				if(br!=null)br.close();
 			}
-			return lastVers;
+			Document doc=Jsoup.connect("https://github.com/itxtech/genisys/commits/master").userAgent("Mozilla").get();
+			Elements elms=doc.select("a");
+			List<String> tmp=new ArrayList<>();
+			for(Element el:elms){
+				String href=el.attr("href");
+				if(href.startsWith("/iTXTech/Genisys/commit/"))tmp.add(href.substring(href.lastIndexOf("/")+1));
+			}
+			tmp=new ArrayList<String>(new OrderTrustedSet<String>(tmp));
+			if(tmp.size()!=0){
+				commit=tmp.get(0).substring(0,8);
+			}
+			return lastVers=vers+" (API: "+api+") "+codename+" Commit "+commit;
 		}
 		
 		@Override

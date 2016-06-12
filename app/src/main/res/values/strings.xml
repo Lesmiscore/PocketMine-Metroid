@@ -177,6 +177,7 @@
 	<string name="failed_load_version">Cannot load version list. Retrying in 5 seconds...</string>
 	<string name="failed_load_version_2">Cannot load version list.</string>
 	<string name="dl_this_version">Downloading this version...</string>
+	<string name="ins_this_version">Installing this version...</string>
 	<string name="please_wait">Please wait...</string>
 	<string name="dl_this_version_failed">Failed to download this version.</string>
 	<!--WhitelistActivity-->
