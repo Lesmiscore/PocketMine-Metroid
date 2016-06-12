@@ -86,7 +86,6 @@ public final class ServerUtils {
 			file = "/src/pocketmine/PocketMine.php";
 		}
 		String[] serverCmd = { getAppDirectory() + "/php",
-				// getAppDirectory() + "/php_data/PocketMine-MP.php"
 				getDataDirectory() + file };
 
 		ProcessBuilder builder = new ProcessBuilder(serverCmd);
@@ -230,7 +229,7 @@ public final class ServerUtils {
 				}else{
 					players=Constant.EMPTY_STRING_ARRAY;
 				}
-				HomeActivity.updatePlayerList(players);
+				HomeActivity.updateBanList(players);
 			}
 		}.start();
 	}
@@ -253,7 +252,7 @@ public final class ServerUtils {
 				}else{
 					players=Constant.EMPTY_STRING_ARRAY;
 				}
-				HomeActivity.updatePlayerList(players);
+				HomeActivity.updateBanIpsList(players);
 			}
 		}.start();
 	}
@@ -287,34 +286,15 @@ public final class ServerUtils {
 			if(!php_ini.exists()){
 				return;
 			}
-			BufferedReader fr=null;
-			try{
-				fr=new BufferedReader(new FileReader(php_ini));
-				if(fr.readLine().startsWith("extension_dir"))return;
-			}finally{
-				if(fr!=null)fr.close();
-			}
+			Map<String,List<String>> values=Utils.readExPropertiesFile(php_ini);
+			values.put("phar.readonly",Arrays.asList("0"));
 			StringWriter sw=new StringWriter();
-			char[] buf=new char[100];
-			int r=0;
-			try{
-				fr=new BufferedReader(new FileReader(php_ini));
-				while(true){
-					r=fr.read(buf);
-					if(r<=0){
-						break;
-					}
-					sw.write(buf,0,r);
-				}
-			}finally{
-				if(fr!=null)fr.close();
-			}
+			for(String k:values.keySet())
+				for(String v:values.get(k))
+					sw.append(k).append('=').append(v).append('\n');
 			FileWriter fw=null;
 			try{
 				fw=new FileWriter(php_ini);
-				fw.append("extension_dir=");
-				fw.append(getAppDirectory());
-				fw.append("\r\n");
 				fw.append(sw.toString());
 			}finally{
 				if(fw!=null)fw.close();

@@ -5,6 +5,7 @@ import net.pocketmine.server.*;
 import android.util.*;
 import android.os.*;
 import android.view.*;
+import com.nao20010128nao.OTC.*;
 
 public class Utils
 {
@@ -15,11 +16,10 @@ public class Utils
 			return true;
 		return false;
 	}
-	public static Map<String,String> readPropertiesFile() {
-		Map<String,String> values = new LinkedHashMap<String, String>();
+	public static Map<String,String> readPropertiesFile(File f){
+		Map<String,String> values = new HashMap<String, String>();
 		try {
-			BufferedReader reader = new BufferedReader(new FileReader(
-														   ServerUtils.getDataDirectory() + "/server.properties"));
+			BufferedReader reader = new BufferedReader(new FileReader(f));
 			try {
 				String line;
 
@@ -27,14 +27,44 @@ public class Utils
 					if (!line.startsWith("#")) {
 						int iof = line.indexOf("=");
 						if (iof == -1) {
-							Log.e("Configuration parser", "Invalid entry: "
-								  + line);
+
 						} else {
 							String name = line.substring(0, iof);
 							String value = line.substring(iof + 1);
-							Log.d("Configuration parser", "[Parsing] Name: "
-								  + name + " Value: " + value);
 							values.put(name, value);
+						}
+					}
+				}
+			} finally {
+				reader.close();
+			}
+		} catch (FileNotFoundException e) {
+			// File not found, it's all
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return values;
+	}
+	public static Map<String,String> readPropertiesFile() {
+		return readPropertiesFile(new File(ServerUtils.getDataDirectory(), "/server.properties"));
+	}
+	public static Map<String,List<String>> readExPropertiesFile(File f){
+		Map<String,List<String>> values = new OrderTrustedMap<String, List<String>>();
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader(f));
+			try {
+				String line;
+
+				while ((line = reader.readLine()) != null) {
+					if (!line.startsWith("#")) {
+						int iof = line.indexOf("=");
+						if (iof == -1) {
+
+						} else {
+							String name = line.substring(0, iof);
+							String value = line.substring(iof + 1);
+							if(!values.containsKey(name))values.put(name,new ArrayList<>());
+							values.get(name).add(value);
 						}
 					}
 				}

@@ -217,15 +217,7 @@ public class HomeActivity extends AppCompatActivity {
 				if (pos == 0) {
 					// nothing
 				} else {
-					ServerUtils.executeCMD(cmd + " " + list[pos]); // in
-																	// a
-																	// worst
-																	// case
-																	// the
-																	// player
-																	// array
-																	// can
-																	// change
+					ServerUtils.executeCMD(cmd + " " + list[pos]);
 				}
 			}
 		});
@@ -389,11 +381,11 @@ public class HomeActivity extends AppCompatActivity {
 														int which) {
 													if (which == 0) {
 														ServerUtils
-																.executeCMD("ban add "
+																.executeCMD("ban "
 																		+ player);
 													} else if (which == 1) {
 														ServerUtils
-																.executeCMD("banip add "
+																.executeCMD("ban-ip "
 																		+ player);
 													}
 												}
