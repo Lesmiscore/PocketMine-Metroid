@@ -54,6 +54,7 @@ import android.support.v7.app.*;
 import android.view.*;
 import android.support.v7.widget.*;
 import android.support.v7.widget.SearchView.*;
+import android.support.v4.view.*;
 
 public class PluginsActivity extends AppCompatActivity {
 
@@ -493,12 +494,9 @@ public class PluginsActivity extends AppCompatActivity {
 				return false;
 			}
 		});
-		menu.add("Search")
-				.setIcon(R.drawable.ic_search)
-				.setActionView(searchView)
-				.setShowAsAction(
-						MenuItem.SHOW_AS_ACTION_IF_ROOM
-								| MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
+		MenuItem mi=menu.add("Search").setIcon(R.drawable.ic_search);
+		MenuItemCompat.setActionView(mi,searchView);
+		MenuItemCompat.setShowAsAction(mi,MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW);
 	}
 
 	public class PluginsTabs extends FragmentPagerAdapter {

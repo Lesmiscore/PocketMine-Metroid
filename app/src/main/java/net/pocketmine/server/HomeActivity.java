@@ -43,6 +43,7 @@ import com.google.android.vending.licensing.LicenseChecker;
 import com.google.android.vending.licensing.ServerManagedPolicy;
 import android.support.v7.app.*;
 import android.view.*;
+import android.support.v4.view.*;
 
 /**
  * Activity to Home Screen
@@ -445,9 +446,8 @@ public class HomeActivity extends AppCompatActivity {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		menu.add(0, CONSOLE_CODE, 0, getResources().getString(R.string.title_activity_log))
-				.setIcon(R.drawable.hardware_dock)
-				.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+		MenuItem log=menu.add(0, CONSOLE_CODE, 0, R.string.title_activity_log).setIcon(R.drawable.hardware_dock);
+		MenuItemCompat.setShowAsAction(log,MenuItem.SHOW_AS_ACTION_IF_ROOM);
 
 		SubMenu sub = menu.addSubMenu(getString(R.string.abs_settings));
 		/**
@@ -472,10 +472,8 @@ public class HomeActivity extends AppCompatActivity {
 		if (BuildConfig.DEBUG)
 			sub.add(0, DEV_CODE, 0, R.string.developer);
 		// sub.add(0, SETTING_CODE, 0, getString(R.string.abs_settings));
-		sub.getItem().setShowAsAction(
-				MenuItem.SHOW_AS_ACTION_IF_ROOM
-						| MenuItem.SHOW_AS_ACTION_WITH_TEXT);
-
+		MenuItem subgrp=sub.getItem();
+		MenuItemCompat.setShowAsAction(subgrp,MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
 		return true;
 	}
 
