@@ -122,10 +122,6 @@ public final class ServerUtils {
 										String line = s.toString();
 										Log.d(TAG, line);
 
-										String lineNoDate = "";
-										int iof = line.indexOf(" ");
-										if (iof != -1)
-											lineNoDate = line.substring(iof + 1);
 										if (c == '\u0007'
 												&& line.startsWith("\u001B]0;")) {
 											line = line.substring(4);
