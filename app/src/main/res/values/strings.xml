@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="application_name">PocketMine-MP for Android</string>
-    <string name="activity_name">PocketMine-MP</string>
+    <string name="application_name">PocketMine-Metroid</string>
+    <string name="activity_name">PocketMine-Metroid</string>
     <string name="server_handler">Server Management</string>
     <string name="server_online">Start Server</string>
     <string name="server_kill">Stop Server</string>
-    <string name="install_bin">Installing PocketMine-MP for Android...</string>
-    <string name="bin_installed">PocketMine-MP for Android was successfully installed</string>
-    <string name="bin_error">Unable to install PocketMine for Android</string>
-	<string name="about_app">About PocketMine-MP for Android</string>
+    <string name="install_bin">Installing PocketMine-Metroid...</string>
+    <string name="bin_installed">PocketMine-Metroid was successfully installed</string>
+    <string name="bin_error">Unable to install PocketMine-Metroid</string>
+	<string name="about_app">About PocketMine-Metroid</string>
 	<string name="server_service">Server Service</string>
 	<string name="download_service">Download Service</string>
 	<string name="auSure">Are you sure?</string>
@@ -29,7 +29,7 @@
     <string name="abs_version_manager">Version manager</string>
     <string name="abs_properties_editor">Properties editor</string>
     <string name="abs_plugins">Plugins</string>
-    <string name="thank_you">Thank you for downloading PocketMine-MP for Android!</string>
+    <string name="thank_you">Thank you for downloading PocketMine-Metroid!</string>
     <string name="before_anything">Now we will prepare everything for you.</string>
     <string name="preparing_string">Preparing...</string>
     <string name="title_activity_install">Welcome!</string>
@@ -136,7 +136,7 @@
 	<string name="php_reinstall">Reinstall PHP binary</string>
 	<!--ServerService-->
 	<string name="service_running">PocketMine-MP is running</string>
-	<string name="tap_open">Tap here to open PocketMine-MP for Android.</string>
+	<string name="tap_open">Tap here to open PocketMine-Metroid.</string>
 	<!--ConfigActivity-->
 	<string name="config_custom">Custom...</string>
 	<string name="config_max_ram">Select the maximal amount of RAM, which PocketMine can use.</string>
