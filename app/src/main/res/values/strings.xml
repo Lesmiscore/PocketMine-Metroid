@@ -223,6 +223,9 @@
 		<item>"World Editing and Management"</item>, <item>"World Generators"</item>
 	</string-array>
 	
+	<!--activity_plugin_details.xml-->
+	<string name="update">Update</string>
+	
 	
 	
 	
