@@ -316,15 +316,19 @@ public class VersionManagerActivity extends AppCompatActivity {
 					@Override
 					public void run() {
 						try {
-							new File(ServerUtils.getDataDirectory(), "/PocketMine-MP.php").delete();
+							new File(ServerUtils.getDataDirectory(), "PocketMine-MP.php").delete();
 						} catch (Exception e) {
 						}
 						try {
-							delete(new File(ServerUtils.getDataDirectory(), "/src/"));
+							delete(new File(ServerUtils.getDataDirectory(), "src/"));
 						} catch (Exception e) {
 						}
 						try {
-							new File(ServerUtils.getDataDirectory(), "/PocketMine-MP.phar").delete();
+							new File(ServerUtils.getDataDirectory(), "PocketMine-MP.phar").delete();
+						} catch (Exception e) {
+						}
+						try {
+							new File(ServerUtils.getDataDirectory(), "src/pocketmine/PocketMine-MP.php").delete();
 						} catch (Exception e) {
 						}
 						
