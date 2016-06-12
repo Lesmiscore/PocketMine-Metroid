@@ -38,9 +38,6 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.google.android.vending.licensing.AESObfuscator;
-import com.google.android.vending.licensing.LicenseChecker;
-import com.google.android.vending.licensing.ServerManagedPolicy;
 import android.support.v7.app.*;
 import android.view.*;
 import android.support.v4.view.*;
