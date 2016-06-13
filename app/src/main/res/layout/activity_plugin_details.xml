@@ -18,7 +18,8 @@
 			android:layout_width="96dip"
 			android:layout_height="96dip"
 			android:layout_marginRight="5dip"
-			android:src="@drawable/ic_launcher"/>
+			android:src="@drawable/ic_launcher"
+			android:transitionName="icon"/>
 
 		<TextView
 			android:id="@+id/plugin_name"
@@ -29,7 +30,8 @@
 			android:ellipsize="marquee"
 			android:singleLine="true"
 			android:text="@string/plugin"
-			android:textSize="24sp"/>
+			android:textSize="24sp"
+			android:transitionName="name"/>
 
 		<TextView
 			android:id="@+id/plugin_author"
@@ -40,7 +42,8 @@
 			android:ellipsize="marquee"
 			android:singleLine="true"
 			android:text="@string/plugin_author"
-			android:textSize="14sp"/>
+			android:textSize="14sp"
+			android:transitionName="author"/>
 
 		<Button
 			android:id="@+id/plugin_download"

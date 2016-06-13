@@ -22,6 +22,8 @@ import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.nao20010128nao.PM_Metroid.R;
+import android.support.v4.util.*;
+import android.support.v4.app.*;
 
 public class GridAdapter extends BaseAdapter {
 	private Context ctx;
@@ -111,7 +113,12 @@ public class GridAdapter extends BaseAdapter {
 						card.setBackgroundResource(R.drawable.bg_selected_drawable);
 						Intent i = new Intent(a, DetailsActivity.class);
 						i.putExtra("id", plugin.id);
-						a.startActivity(i);
+						Pair<View, String> p1 = Pair.create(card.findViewById(R.id.plugin_author),"author");
+						Pair<View, String> p2 = Pair.create(card.findViewById(R.id.plugin_name), "name");
+						Pair<View, String> p3 = Pair.create(card.findViewById(R.id.plugin_icon), "icon");
+						ActivityOptionsCompat options = ActivityOptionsCompat.
+							makeSceneTransitionAnimation(a, p1, p2, p3);
+						a.startActivity(i,options.toBundle());
 					}
 					card.postDelayed(new Runnable() {
 
