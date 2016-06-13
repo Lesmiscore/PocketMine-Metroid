@@ -129,6 +129,7 @@
     <string name="channel_beta">Beta</string>
     <string name="channel_dev">Development</string>
 	<string name="software_genisys_latest">Genisys (Latest)</string>
+	<string name="software_clearsky_latest">ClearSky (Latest)</string>
 	
 	
 	

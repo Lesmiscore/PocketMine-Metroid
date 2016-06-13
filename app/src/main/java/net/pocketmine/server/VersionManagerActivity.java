@@ -120,6 +120,9 @@ public class VersionManagerActivity extends AppCompatActivity {
 					final String genisysVersion=SoftwareKind.GENISYS_LATEST.getVersion();
 					final String genisysDate=SimpleDateFormat.getInstance().format(SoftwareKind.GENISYS_LATEST.getReleaseDate())+" UTC";
 					
+					final String clearskyVersion=SoftwareKind.CLEARSKY_LATEST.getVersion();
+					final String clearskyDate=SimpleDateFormat.getInstance().format(SoftwareKind.CLEARSKY_LATEST.getReleaseDate())+" UTC";
+					
 					runOnUiThread(new Runnable() {
 
 						@Override
@@ -127,15 +130,22 @@ public class VersionManagerActivity extends AppCompatActivity {
 							TextView stableVersionView = (TextView) findViewById(R.id.stable_version);
 							TextView stableDateView = (TextView) findViewById(R.id.stable_date);
 							Button stableDownload = (Button) findViewById(R.id.download_stable);
+							
 							TextView betaVersionView = (TextView) findViewById(R.id.beta_version);
 							TextView betaDateView = (TextView) findViewById(R.id.beta_date);
 							Button betaDownload = (Button) findViewById(R.id.download_beta);
+							
 							TextView devVersionView = (TextView) findViewById(R.id.dev_version);
 							TextView devDateView = (TextView) findViewById(R.id.dev_date);
 							Button devDownload = (Button) findViewById(R.id.download_dev);
+							
 							TextView genisysVersionView = (TextView) findViewById(R.id.genisys_version);
 							TextView genisysDateView = (TextView) findViewById(R.id.genisys_date);
 							Button genisysDownload = (Button) findViewById(R.id.download_genisys);
+							
+							TextView clearskyVersionView = (TextView) findViewById(R.id.clearsky_version);
+							TextView clearskyDateView = (TextView) findViewById(R.id.clearsky_date);
+							Button clearskyDownload = (Button) findViewById(R.id.download_clearsky);
 							
 							stableVersionView.setText(getResources().getString(R.string.version)+": "
 									+ stableVersion + " (API: " + stableAPI
@@ -174,6 +184,15 @@ public class VersionManagerActivity extends AppCompatActivity {
 									@Override
 									public void onClick(View v) {
 										download(SoftwareKind.GENISYS_LATEST);
+									}
+								});
+							
+							clearskyVersionView.setText(getResources().getString(R.string.version)+": " + clearskyVersion);
+							clearskyDateView.setText(clearskyDate);
+							clearskyDownload.setOnClickListener(new OnClickListener() {
+									@Override
+									public void onClick(View v) {
+										download(SoftwareKind.CLEARSKY_LATEST);
 									}
 								});
 							

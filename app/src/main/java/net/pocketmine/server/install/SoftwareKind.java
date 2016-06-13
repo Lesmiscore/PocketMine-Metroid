@@ -189,20 +189,53 @@ public enum SoftwareKind
 		}
 	},
 	CLEARSKY_LATEST{
+		String lastVers;
+		Date date;
 		@Override
 		public String getDownloadAddress()
 		{
 			// TODO: Implement this method
-			return null;
+			return "https://github.com/ClearSkyTeam/ClearSky/archive/master.zip";
 		}
 
 		@Override
 		public String getVersion() throws IOException
 		{
-			// TODO: Implement this method
-			return null;
+			// https://raw.githubusercontent.com/ClearSkyTeam/ClearSky/master/src/pocketmine/PocketMine.php
+			if(lastVers!=null)return lastVers;
+			String vers=null,api=null,codename=null,commit="00000000";
+			BufferedReader br=null;
+			try{
+				br=new BufferedReader(new InputStreamReader(new BufferedInputStream(new URL("https://raw.githubusercontent.com/ClearSkyTeam/ClearSky/master/src/pocketmine/PocketMine.php").openConnection().getInputStream())));
+				String oneLine;
+				while(null!=(oneLine=br.readLine())){
+					if(oneLine.contains("const VERSION = ")){
+						vers=oneLine.substring(oneLine.indexOf("\"")+1,oneLine.lastIndexOf("\""));
+					}
+					if(oneLine.contains("const API_VERSION = ")){
+						api=oneLine.substring(oneLine.indexOf("\"")+1,oneLine.lastIndexOf("\""));
+					}
+					if(oneLine.contains("const CODENAME = ")){
+						codename=oneLine.substring(oneLine.indexOf("\"")+1,oneLine.lastIndexOf("\""));
+					}
+				}
+			}finally{
+				if(br!=null)br.close();
+			}
+			Document doc=Jsoup.connect("https://github.com/ClearSkyTeam/ClearSky/commits/master").userAgent("Mozilla").get();
+			Elements elms=doc.select("a");
+			List<String> tmp=new ArrayList<>();
+			for(Element el:elms){
+				String href=el.attr("href");
+				if(href.startsWith("/ClearSkyTeam/ClearSky/commit/"))tmp.add(href.substring(href.lastIndexOf("/")+1));
+			}
+			tmp=new ArrayList<String>(new OrderTrustedSet<String>(tmp));
+			if(tmp.size()!=0){
+				commit=tmp.get(0).substring(0,8);
+			}
+			return lastVers=vers+" (API: "+api+") "+codename+" Commit "+commit;
 		}
-		
+
 		@Override
 		public VersionInstallProvider getInstaller()
 		{
@@ -211,10 +244,20 @@ public enum SoftwareKind
 		}
 
 		@Override
-		public Date getReleaseDate() throws IOException
+		public Date getReleaseDate() throws IOException,ParseException
 		{
 			// TODO: Implement this method
-			return null;
+			if(date!=null)return date;
+			Document doc = Jsoup.connect("https://github.com/ClearSkyTeam/ClearSky"/*/commits/master"*/).userAgent("Mozilla").get();
+			Elements elms_base = doc.select("time");
+			OrderTrustedSet<String> elems=new OrderTrustedSet<String>();
+			for(Element element:elms_base){
+				elems.add(element.attr("datetime"));
+			}
+			ArrayList<String> elms=new ArrayList<String>(elems);
+			if(elms.size()==0)return new Date(System.currentTimeMillis());
+			//2016-06-11T10:08:20Z
+			return date=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(elms.get(0).replace('T',' ').replace("Z",""));
 		}
 	};
 	SoftwareKind(){
