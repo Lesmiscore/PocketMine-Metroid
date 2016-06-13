@@ -63,7 +63,7 @@ public class Utils
 						} else {
 							String name = line.substring(0, iof);
 							String value = line.substring(iof + 1);
-							if(!values.containsKey(name))values.put(name,new ArrayList<>());
+							if(!values.containsKey(name))values.put(name,new ArrayList<String>());
 							values.get(name).add(value);
 						}
 					}
