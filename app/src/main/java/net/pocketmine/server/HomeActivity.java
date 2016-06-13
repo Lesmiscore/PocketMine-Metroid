@@ -49,7 +49,6 @@ import android.support.v4.view.*;
 @android.annotation.TargetApi(Build.VERSION_CODES.GINGERBREAD)
 public class HomeActivity extends AppCompatActivity {
 
-	// private final String TAG = "com.github.com.DroidPHP";
 	final static int PROJECT_CODE = 143;
 	final static int VERSION_MANAGER_CODE = PROJECT_CODE + 1;
 	final static int FILE_MANAGER_CODE = VERSION_MANAGER_CODE + 1;
@@ -59,7 +58,6 @@ public class HomeActivity extends AppCompatActivity {
 	final static int ABOUT_US_CODE = FORCE_CLOSE_CODE + 1;
 	final static int CONSOLE_CODE = ABOUT_US_CODE + 1;
 	final static int REINSTALL_PHP_CODE = CONSOLE_CODE + 1;
-	final static int DEV_CODE = REINSTALL_PHP_CODE + 1;
 	public static HashMap<String, String> server;
 	public static SharedPreferences prefs;
 
@@ -97,7 +95,6 @@ public class HomeActivity extends AppCompatActivity {
 
 		ha = this;
 		setContentView(R.layout.home);
-		// startService(new Intent(mContext, ServerService.class));
 		prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
 		ServerUtils.setContext(mContext);
@@ -121,10 +118,6 @@ public class HomeActivity extends AppCompatActivity {
 						android.widget.Toast.LENGTH_LONG).show();
 
 				servInt = new Intent(mContext, ServerService.class);
-
-				// i.putExtra(ServerService.EXTRA_PORT,
-				// prefs.getString("k_server_port", "8080"));
-
 				startService(servInt);
 				isStarted = true;
 				showStats(true);
@@ -157,7 +150,6 @@ public class HomeActivity extends AppCompatActivity {
 		});
 		Button btn_deop = (Button) findViewById(R.id.action_deop);
 		btn_deop.setOnClickListener(new OnClickListener() {
-
 			@Override
 			public void onClick(View arg0) {
 				actionPlayer("deop");
@@ -445,21 +437,14 @@ public class HomeActivity extends AppCompatActivity {
 		/**
 		 * Build navigation for submenu
 		 */
-		// sub.add(0, PROJECT_CODE, 0, getString(R.string.abs_project));
-		// sub.add(0, DEV_CODE, 0, getString(R.string.abs_dev));
 		sub.add(0, VERSION_MANAGER_CODE, 0,
 				getString(R.string.abs_version_manager));
-		// sub.add(0, FILE_MANAGER_CODE, 0,
-		// getString(R.string.abs_file_manager));
 		sub.add(0, PROPERTIES_EDITOR_CODE, 0,
 				getString(R.string.abs_properties_editor));
 		sub.add(0, PLUGINS_CODE, 0, getString(R.string.abs_plugins));
 		sub.add(0, FORCE_CLOSE_CODE, 0, getString(R.string.abs_force_close));
 		sub.add(0, ABOUT_US_CODE, 0, getString(R.string.abs_about));
 		sub.add(0, REINSTALL_PHP_CODE, 0, getString(R.string.php_reinstall));
-		if (BuildConfig.DEBUG)
-			sub.add(0, DEV_CODE, 0, R.string.developer);
-		// sub.add(0, SETTING_CODE, 0, getString(R.string.abs_settings));
 		MenuItem subgrp=sub.getItem();
 		MenuItemCompat.setShowAsAction(subgrp,MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
 		return true;
@@ -470,43 +455,28 @@ public class HomeActivity extends AppCompatActivity {
 		if (item.getItemId() == android.R.id.home || item.getItemId() == 0) {
 			return false;
 		}
-
 		if (item.getItemId() == FILE_MANAGER_CODE) {
-
 			startActivity(new Intent(mContext, FileManagerActivity.class));
-
 		} else if (item.getItemId() == VERSION_MANAGER_CODE) {
-
 			startActivity(new Intent(mContext, VersionManagerActivity.class));
-
 		} else if (item.getItemId() == PROPERTIES_EDITOR_CODE) {
-
 			startActivity(new Intent(mContext, ConfigActivity.class));
-
 		} else if (item.getItemId() == PLUGINS_CODE) {
-
 			startActivity(new Intent(mContext, PluginsActivity.class));
-			// startActivity(new Intent(mContext, DetailsActivity.class));
-
 		} else if (item.getItemId() == FORCE_CLOSE_CODE) {
-
 			btn_runServer.setEnabled(true);
 			btn_stopServer.setEnabled(false);
 			ServerUtils.stopServer();
 			if (servInt != null)
 				stopService(servInt);
 			isStarted = false;
-
 		} else if (item.getItemId() == ABOUT_US_CODE) {
-
 			startActivity(new Intent(mContext, About.class));
-
 		} else if (item.getItemId() == CONSOLE_CODE) {
 			startActivity(new Intent(mContext, LogActivity.class));
 		} else if (item.getItemId() == REINSTALL_PHP_CODE) {
 			startActivity(new Intent(mContext, PhpVersionSelectorActivity.class).putExtra("reinst",true));
 		}
-
 		return true;
 	}
 }

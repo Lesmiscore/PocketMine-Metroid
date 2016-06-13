@@ -58,9 +58,7 @@ public class GridAdapter extends BaseAdapter {
 			if (view.getTag() != null
 					&& view.getTag() instanceof DownloadImageTask) {
 				DownloadImageTask task = (DownloadImageTask) view.getTag();
-				task.cancel = true; // there's no problem, with finishing it to
-									// download; just do not change correct
-									// image
+				task.cancel = true;
 			}
 		}
 

@@ -117,15 +117,6 @@ public class InstallerAsync extends android.os.AsyncTask<Void, String, Void> {
 		ctx.installing=false;
 	}
 
-	/*
-	private void dirChecker(String loc, String dir) {
-		File f = new File(loc + dir);
-
-		if (!f.isDirectory()) {
-			f.mkdirs();
-		}
-	}*/
-	
 	public void delete(File f) {
 		if(!f.exists())return;
 		if (f.isDirectory()) {

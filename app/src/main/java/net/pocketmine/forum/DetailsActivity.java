@@ -547,15 +547,10 @@ public class DetailsActivity extends AppCompatActivity {
 							_rateCount.setText(""
 									+ (Long) jp.get("rating_count"));
 							_rate2Count.setText(_rateCount.getText());
-							// p.ratedWeighted =
-							// getDouble(jp.get("rating_weighted"));
+							
 							Date d = new Date(((Long) jp.get("last_update"))
 									.longValue() * 1000);
-							_lastUpdate.setText(new SimpleDateFormat(
-									/*DATE RESOURCE HERE*/).format(d));
-							// p.tag = ((Long) jp.get("prefix_id")).intValue();
-							// p.category = ((Long)
-							// jp.get("category_id")).intValue();
+							_lastUpdate.setText(new SimpleDateFormat(/*DATE RESOURCE HERE*/).format(d));
 
 							tagLine = (String) jp.get("tag_line");
 							description = (String) jp.get("description");
