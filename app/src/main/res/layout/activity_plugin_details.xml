@@ -30,8 +30,8 @@
 			android:ellipsize="marquee"
 			android:singleLine="true"
 			android:text="@string/plugin"
-			android:textSize="24sp"
-			android:transitionName="name"/>
+			android:transitionName="name"
+			android:textAppearance="?android:attr/textAppearanceLarge"/>
 
 		<TextView
 			android:id="@+id/plugin_author"
