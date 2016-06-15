@@ -8,6 +8,7 @@ android {
         applicationId "com.nao20010128nao.PM_Metroid"
         minSdkVersion 9
         targetSdkVersion 21
+		if(true) multiDexEnabled true
     }
 
     buildTypes {
