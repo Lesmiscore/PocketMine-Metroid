@@ -53,13 +53,14 @@ public class CategoryActivity extends AppCompatActivity {
 		ActionBar bar = getSupportActionBar();
 		bar.setDisplayShowHomeEnabled(true);
 		bar.setDisplayHomeAsUpEnabled(true);
+		bar.setElevation(0);
 
 		tabs = (PagerSlidingTabStrip) findViewById(R.id.plugins_tabs);
 		pager = (ViewPager) findViewById(R.id.plugins_pager);
 		adapter = new PluginsTabs(getSupportFragmentManager());
 		pager.setAdapter(adapter);
 		tabs.setViewPager(pager);
-		tabs.setIndicatorColor(PluginsActivity.color);
+		PluginsActivity.setupPSTS(tabs);
 	}
 
 	@Override

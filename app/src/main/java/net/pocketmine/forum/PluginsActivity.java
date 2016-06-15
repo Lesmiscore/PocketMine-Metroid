@@ -109,7 +109,7 @@ public class PluginsActivity extends AppCompatActivity {
 		adapter = new PluginsTabs(getSupportFragmentManager());
 		pager.setAdapter(adapter);
 		tabs.setViewPager(pager);
-		tabs.setIndicatorColor(color);
+		PluginsActivity.setupPSTS(tabs);
 		pager.setCurrentItem(1);
 		pager.setOffscreenPageLimit(10);
 
@@ -131,7 +131,7 @@ public class PluginsActivity extends AppCompatActivity {
 
 		refresh();
 	}
-
+	
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 		// super.onSaveInstanceState(outState);
@@ -302,6 +302,8 @@ public class PluginsActivity extends AppCompatActivity {
 
 							ProgressBar progress = (ProgressBar) findViewById(R.id.plugins_loading);
 							progress.setVisibility(View.GONE);
+							
+							getSupportActionBar().setElevation(0);
 						}
 					});
 				} catch (Exception e) {
@@ -353,7 +355,16 @@ public class PluginsActivity extends AppCompatActivity {
 	public void openSettings(MenuItem mi) {
 		startActivity(new Intent(this, PluginsSettingsActivity.class));
 	}
-
+	
+	public static void setupPSTS(PagerSlidingTabStrip tabs) {
+		tabs.setBackgroundColor(PluginsActivity.color);
+		tabs.setTextColor(Color.WHITE);
+		tabs.setIndicatorColor(Color.WHITE);
+		tabs.setIndicatorHeight(tabs.getIndicatorHeight() / 2);
+		tabs.setDividerColor(Color.TRANSPARENT);
+		tabs.setUnderlineHeight(0);
+	}
+	
 	public static void addSearch(final Activity activity, ActionBar actionBar,
 			Menu menu,String query) {
 
