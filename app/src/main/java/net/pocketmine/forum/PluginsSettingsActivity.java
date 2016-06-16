@@ -14,11 +14,9 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.preference.RingtonePreference;
 import android.text.TextUtils;
-
-import java.util.List;
-
 import com.nao20010128nao.PM_Metroid.R;
-import com.nao20010128nao.Wisecraft.misc.compat.*;
+import com.nao20010128nao.Wisecraft.misc.compat.AppCompatPreferenceActivity;
+import java.util.List;
 
 /**
  * A {@link PreferenceActivity} that presents a set of application settings. On

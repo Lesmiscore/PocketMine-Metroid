@@ -1,10 +1,12 @@
 package net.pocketmine.server.Utils;
 
-import android.text.style.*;
-
 import android.graphics.Typeface;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.StrikethroughSpan;
+import android.text.style.StyleSpan;
+import android.text.style.UnderlineSpan;
 import android.util.Log;
 
 public class MinecraftFormattingCodeParser {

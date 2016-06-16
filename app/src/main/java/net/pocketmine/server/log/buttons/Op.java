@@ -1,10 +1,8 @@
 package net.pocketmine.server.log.buttons;
-import android.content.*;
-import com.nao20010128nao.PM_Metroid.*;
-import com.nao20010128nao.Wisecraft.misc.compat.*;
-import net.pocketmine.server.*;
-
+import android.content.DialogInterface;
 import com.nao20010128nao.PM_Metroid.R;
+import com.nao20010128nao.Wisecraft.misc.compat.AppCompatAlertDialog;
+import net.pocketmine.server.LogActivity;
 
 public class Op extends NameSelectAction {
 	public Op(LogActivity a) {

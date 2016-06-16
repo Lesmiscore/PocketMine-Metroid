@@ -1,11 +1,16 @@
 package net.pocketmine.server;
-import android.support.v7.app.*;
-import android.os.*;
-import com.nao20010128nao.Wisecraft.misc.compat.*;
-import java.util.*;
-import android.widget.*;
-import android.view.*;
-import android.content.*;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+import com.nao20010128nao.Wisecraft.misc.compat.AppCompatListActivity;
+import com.nao20010128nao.Wisecraft.misc.compat.R;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PhpVersionSelectorActivity extends AppCompatListActivity {
 	List<PhpVersionEntry> versions=new ArrayList<>();

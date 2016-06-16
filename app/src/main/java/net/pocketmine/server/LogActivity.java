@@ -1,29 +1,53 @@
 package net.pocketmine.server;
 
-import com.nao20010128nao.PM_Metroid.R;
-
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.view.MenuItemCompat;
+import android.support.v4.view.ViewCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.text.ClipboardManager;
 import android.text.Html;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.support.v7.app.*;
-import android.view.*;
-import android.graphics.*;
-import net.pocketmine.server.log.buttons.*;
-import android.support.v4.widget.*;
-import android.widget.*;
-import android.support.v4.view.*;
-import net.pocketmine.server.Utils.*;
+import com.nao20010128nao.PM_Metroid.R;
+import net.pocketmine.server.Utils.Utils;
+import net.pocketmine.server.log.buttons.Ban;
+import net.pocketmine.server.log.buttons.BanIp;
+import net.pocketmine.server.log.buttons.Banlist;
+import net.pocketmine.server.log.buttons.Clear;
+import net.pocketmine.server.log.buttons.DefaultGamemode;
+import net.pocketmine.server.log.buttons.Deop;
+import net.pocketmine.server.log.buttons.Gamemode;
+import net.pocketmine.server.log.buttons.Give;
+import net.pocketmine.server.log.buttons.Kick;
+import net.pocketmine.server.log.buttons.Kill;
+import net.pocketmine.server.log.buttons.Me;
+import net.pocketmine.server.log.buttons.Op;
+import net.pocketmine.server.log.buttons.Pardon;
+import net.pocketmine.server.log.buttons.PardonIp;
+import net.pocketmine.server.log.buttons.Save_All;
+import net.pocketmine.server.log.buttons.Save_Off;
+import net.pocketmine.server.log.buttons.Save_On;
+import net.pocketmine.server.log.buttons.Stop;
+import net.pocketmine.server.log.buttons.Tell;
+import net.pocketmine.server.log.buttons.Time_Set;
+import net.pocketmine.server.log.buttons.Tp;
+import net.pocketmine.server.log.buttons.Weather;
+import net.pocketmine.server.log.buttons.Xp;
 
 @SuppressWarnings("deprecation")
 @android.annotation.TargetApi(Build.VERSION_CODES.GINGERBREAD)

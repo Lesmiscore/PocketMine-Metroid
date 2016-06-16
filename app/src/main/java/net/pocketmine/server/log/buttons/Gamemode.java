@@ -1,14 +1,12 @@
 package net.pocketmine.server.log.buttons;
 
-import android.content.*;
-import android.util.*;
-import com.nao20010128nao.PM_Metroid.*;
-import com.nao20010128nao.Wisecraft.misc.compat.*;
-import java.io.*;
-import net.pocketmine.server.*;
-
+import android.content.DialogInterface;
+import android.util.Log;
+import com.google.rconclient.rcon.AuthenticationException;
 import com.nao20010128nao.PM_Metroid.R;
-import com.google.rconclient.rcon.*;
+import com.nao20010128nao.Wisecraft.misc.compat.AppCompatAlertDialog;
+import java.io.IOException;
+import net.pocketmine.server.LogActivity;
 
 public class Gamemode extends NameSelectAction {
 	String player=null;

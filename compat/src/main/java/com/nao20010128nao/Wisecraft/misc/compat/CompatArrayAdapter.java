@@ -1,6 +1,6 @@
 package com.nao20010128nao.Wisecraft.misc.compat;
-import android.widget.*;
-import java.util.*;
+import android.widget.ArrayAdapter;
+import java.util.Collection;
 
 public class CompatArrayAdapter
 {

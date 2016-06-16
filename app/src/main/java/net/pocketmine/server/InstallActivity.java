@@ -3,10 +3,9 @@ package net.pocketmine.server;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
-
 import com.nao20010128nao.PM_Metroid.R;
-import android.support.v7.app.*;
 
 public class InstallActivity extends AppCompatActivity {
 	String filePath;

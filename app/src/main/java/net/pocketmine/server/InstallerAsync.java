@@ -1,15 +1,13 @@
 package net.pocketmine.server;
 
+import android.widget.TextView;
+import com.nao20010128nao.PM_Metroid.R;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-import com.nao20010128nao.PM_Metroid.R;
-
-import android.app.Activity;
-import android.widget.TextView;
-import java.io.*;
 
 public class InstallerAsync extends android.os.AsyncTask<Void, String, Void> {
 

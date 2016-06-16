@@ -1,12 +1,10 @@
 package net.pocketmine.server.log.buttons;
-import android.content.*;
-import com.nao20010128nao.PM_Metroid.*;
-import com.nao20010128nao.Wisecraft.misc.compat.*;
-import java.io.*;
-import net.pocketmine.server.*;
-import net.pocketmine.server.Utils.*;
-
+import android.content.DialogInterface;
 import com.nao20010128nao.PM_Metroid.R;
+import com.nao20010128nao.Wisecraft.misc.compat.AppCompatAlertDialog;
+import java.io.IOException;
+import net.pocketmine.server.LogActivity;
+import net.pocketmine.server.Utils.Constant;
 
 public class Time_Set extends NameSelectAction {
 	public Time_Set(LogActivity a) {

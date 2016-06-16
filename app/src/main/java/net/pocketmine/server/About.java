@@ -10,13 +10,14 @@
 package net.pocketmine.server;
 
 import android.os.Bundle;
-import android.webkit.WebView;
-
+import android.support.v7.app.AppCompatActivity;
+import android.widget.TextView;
 import com.nao20010128nao.PM_Metroid.R;
-import android.support.v7.app.*;
-import android.widget.*;
-import java.io.*;
-import net.pocketmine.server.Utils.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.StringWriter;
+import net.pocketmine.server.Utils.MinecraftFormattingCodeParser;
 
 public class About extends AppCompatActivity {
 	@Override

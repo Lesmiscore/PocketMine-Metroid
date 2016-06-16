@@ -1,29 +1,26 @@
 package net.pocketmine.forum;
 
-import java.util.ArrayList;
-
-import com.astuetz.PagerSlidingTabStrip;
-
-import net.pocketmine.forum.PluginsActivity.Plugin;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 import android.widget.LinearLayout;
-import android.support.v7.app.*;
-import android.view.*;
-
+import com.astuetz.PagerSlidingTabStrip;
 import com.nao20010128nao.PM_Metroid.R;
+import java.util.ArrayList;
+import net.pocketmine.forum.PluginsActivity.Plugin;
 
 public class CategoryActivity extends AppCompatActivity {
 

@@ -1,16 +1,13 @@
 package net.pocketmine.server;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import com.nao20010128nao.PM_Metroid.R;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.SparseBooleanArray;
+import android.view.ActionMode;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -18,8 +15,12 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.support.v7.app.*;
-import android.view.*;
+import com.nao20010128nao.PM_Metroid.R;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.PrintWriter;
+import java.util.ArrayList;
 
 public class WhitelistActivity extends AppCompatActivity {
 

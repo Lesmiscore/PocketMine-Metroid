@@ -1,17 +1,17 @@
 package net.pocketmine.server.log.buttons;
-import android.view.*;
-import android.widget.*;
-import com.nao20010128nao.PM_Metroid.*;
-import com.nao20010128nao.Wisecraft.misc.compat.*;
-import java.io.*;
-import net.pocketmine.server.*;
-import net.pocketmine.server.Utils.*;
-
+import android.support.v7.app.AlertDialog;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import com.google.rconclient.rcon.AuthenticationException;
 import com.nao20010128nao.PM_Metroid.R;
+import com.nao20010128nao.Wisecraft.misc.compat.AppCompatAlertDialog;
+import java.io.IOException;
+import net.pocketmine.server.LogActivity;
+import net.pocketmine.server.Utils.Constant;
 
 import static net.pocketmine.server.Utils.Utils.*;
-import android.support.v7.app.*;
-import com.google.rconclient.rcon.*;
 
 public class Clear extends NameSelectAction {
 	String   player       ,item       ;

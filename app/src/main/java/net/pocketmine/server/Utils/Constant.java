@@ -1,6 +1,8 @@
 package net.pocketmine.server.Utils;
-import android.content.*;
-import java.util.*;
+import android.content.DialogInterface;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class Constant {
 	public static final List ONE_LENGTH_NULL_LIST=Collections.unmodifiableList(Arrays.asList(new Object[1]));

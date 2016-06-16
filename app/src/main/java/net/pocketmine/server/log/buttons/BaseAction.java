@@ -1,12 +1,9 @@
 package net.pocketmine.server.log.buttons;
-import android.content.*;
-import android.view.View.*;
-import android.widget.*;
-import com.nao20010128nao.Wisecraft.*;
-import com.nao20010128nao.PM_Metroid.*;
-import net.pocketmine.server.*;
-
+import android.content.ContextWrapper;
+import android.view.View.OnClickListener;
+import android.widget.EditText;
 import com.nao20010128nao.PM_Metroid.R;
+import net.pocketmine.server.LogActivity;
 
 public abstract class BaseAction extends ContextWrapper implements OnClickListener {
 	private LogActivity ra;

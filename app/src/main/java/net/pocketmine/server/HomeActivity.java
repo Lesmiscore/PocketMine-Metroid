@@ -8,19 +8,6 @@
  */
 package net.pocketmine.server;
 
-import java.net.InetAddress;
-import java.net.NetworkInterface;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-
-import org.apache.http.conn.util.InetAddressUtils;
-
-import net.pocketmine.forum.PluginsActivity;
-import com.nao20010128nao.PM_Metroid.R;
-import com.nao20010128nao.PM_Metroid.BuildConfig;
-
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -29,18 +16,27 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.provider.Settings.Secure;
+import android.support.v4.view.MenuItemCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.SubMenu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import android.support.v7.app.*;
-import android.view.*;
-import android.support.v4.view.*;
+import com.nao20010128nao.PM_Metroid.R;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import net.pocketmine.forum.PluginsActivity;
+import org.apache.http.conn.util.InetAddressUtils;
 
 /**
  * Activity to Home Screen

@@ -1,5 +1,6 @@
 package net.pocketmine.server.install;
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
 
 public interface VersionInstallProvider
 {

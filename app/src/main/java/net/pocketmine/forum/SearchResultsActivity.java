@@ -1,17 +1,16 @@
 package net.pocketmine.forum;
 
-import java.util.ArrayList;
-
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.GridView;
-import android.support.v7.app.*;
-import android.view.*;
 import com.nao20010128nao.PM_Metroid.R;
+import java.util.ArrayList;
 
 public class SearchResultsActivity extends AppCompatActivity {
 

@@ -1,12 +1,13 @@
 package net.pocketmine.server.log.buttons;
-import android.view.*;
-import android.widget.*;
-import com.nao20010128nao.PM_Metroid.*;
-import com.nao20010128nao.Wisecraft.misc.compat.*;
-import net.pocketmine.server.*;
-
+import android.support.v7.app.AlertDialog;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import com.nao20010128nao.PM_Metroid.R;
-import android.support.v7.app.*;
+import com.nao20010128nao.Wisecraft.misc.compat.AppCompatAlertDialog;
+import net.pocketmine.server.LogActivity;
 
 public class Me extends BaseAction {
 	EditText cmd;

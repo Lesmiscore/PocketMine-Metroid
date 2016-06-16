@@ -1,26 +1,9 @@
 package net.pocketmine.server;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.net.URL;
-import java.net.URLConnection;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import com.nao20010128nao.PM_Metroid.R;
-import org.json.simple.JSONObject;
-import org.json.simple.JSONValue;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -30,8 +13,22 @@ import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.support.v7.app.*;
-import net.pocketmine.server.install.*;
+import com.nao20010128nao.PM_Metroid.R;
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.URL;
+import java.net.URLConnection;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import net.pocketmine.server.install.SoftwareKind;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
 
 public class VersionManagerActivity extends AppCompatActivity {
 	public ArrayAdapter<CharSequence> adapter;

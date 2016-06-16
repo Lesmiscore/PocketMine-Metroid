@@ -1,5 +1,8 @@
 package net.pocketmine.server.install;
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class FileCopyInstaller implements VersionInstallProvider
 {

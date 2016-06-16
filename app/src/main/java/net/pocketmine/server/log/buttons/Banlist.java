@@ -1,12 +1,10 @@
 package net.pocketmine.server.log.buttons;
-import android.content.*;
-import android.view.*;
-import com.nao20010128nao.PM_Metroid.*;
-import com.nao20010128nao.Wisecraft.misc.compat.*;
-import net.pocketmine.server.*;
-import net.pocketmine.server.Utils.*;
-
+import android.content.DialogInterface;
+import android.view.View;
 import com.nao20010128nao.PM_Metroid.R;
+import com.nao20010128nao.Wisecraft.misc.compat.AppCompatAlertDialog;
+import net.pocketmine.server.LogActivity;
+import net.pocketmine.server.Utils.Constant;
 
 public class Banlist extends BaseAction {
 	public Banlist(LogActivity act) {

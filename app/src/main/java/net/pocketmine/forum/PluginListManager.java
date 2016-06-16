@@ -1,5 +1,6 @@
 package net.pocketmine.forum;
 
+import android.util.Log;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -9,10 +10,7 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.security.MessageDigest;
 import java.util.ArrayList;
-
 import net.pocketmine.server.ServerUtils;
-
-import android.util.Log;
 
 
 public class PluginListManager {

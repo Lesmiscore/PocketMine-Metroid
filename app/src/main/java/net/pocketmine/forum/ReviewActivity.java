@@ -1,20 +1,18 @@
 package net.pocketmine.forum;
 
+import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import com.nao20010128nao.PM_Metroid.R;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
-
 import net.pocketmine.forum.DetailsActivity.Review;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.LayerDrawable;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.support.v7.app.*;
-import android.view.*;
-import com.nao20010128nao.PM_Metroid.R;
 
 public class ReviewActivity extends AppCompatActivity {
 

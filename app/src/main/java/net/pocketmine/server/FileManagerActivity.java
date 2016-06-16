@@ -10,9 +10,8 @@
 package net.pocketmine.server;
 
 import android.os.Bundle;
-
+import android.support.v7.app.AppCompatActivity;
 import com.nao20010128nao.PM_Metroid.R;
-import android.support.v7.app.*;
 
 public class FileManagerActivity extends AppCompatActivity {
 	@Override

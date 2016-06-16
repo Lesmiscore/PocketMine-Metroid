@@ -1,6 +1,6 @@
 package com.nao20010128nao.Wisecraft.misc.compat;
-import android.support.v7.app.AlertDialog;
 import android.content.Context;
+import android.support.v7.app.AlertDialog;
 
 public class AppCompatAlertDialog extends AlertDialog
 {

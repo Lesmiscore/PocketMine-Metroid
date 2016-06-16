@@ -1,40 +1,27 @@
 package net.pocketmine.forum;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Locale;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.JSONValue;
-
-import com.astuetz.PagerSlidingTabStrip;
-
-import net.pocketmine.forum.DynamicLayout.ShowViewListener;
-import net.pocketmine.forum.GridAdapter.DownloadImageTask;
-import net.pocketmine.forum.PluginListManager.PluginDownloadInfo;
-import com.nao20010128nao.PM_Metroid.R;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.LayerDrawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
+import android.support.v7.widget.SearchView.OnQueryTextListener;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -50,11 +37,21 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.support.v7.app.*;
-import android.view.*;
-import android.support.v7.widget.*;
-import android.support.v7.widget.SearchView.*;
-import android.support.v4.view.*;
+import com.astuetz.PagerSlidingTabStrip;
+import com.nao20010128nao.PM_Metroid.R;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Locale;
+import net.pocketmine.forum.DynamicLayout.ShowViewListener;
+import net.pocketmine.forum.GridAdapter.DownloadImageTask;
+import net.pocketmine.forum.PluginListManager.PluginDownloadInfo;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
 
 public class PluginsActivity extends AppCompatActivity {
 

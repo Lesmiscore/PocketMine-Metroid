@@ -1,5 +1,5 @@
 package com.nao20010128nao.Wisecraft.misc.compat;
-import java.nio.charset.*;
+import java.nio.charset.Charset;
 
 public class CompatCharsets
 {
