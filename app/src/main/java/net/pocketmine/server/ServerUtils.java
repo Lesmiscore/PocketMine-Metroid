@@ -25,6 +25,8 @@ import java.util.List;
 import java.util.Map;
 import net.pocketmine.server.Utils.Constant;
 import net.pocketmine.server.Utils.Utils;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 
 public final class ServerUtils {
 
@@ -36,24 +38,17 @@ public final class ServerUtils {
 
 	final public static void setContext(Context mContext) {
 		ServerUtils.mContext = mContext;
-
 	}
 
 	final public static String getAppDirectory() {
-
 		return mContext.getApplicationInfo().dataDir;
-
 	}
 
 	final public static String getDataDirectory() {
-
-		return android.os.Environment.getExternalStorageDirectory().getPath()
-				+ "/PocketMine";
-
+		return PreferenceManager.getDefaultSharedPreferences(mContext).getString("data", android.os.Environment.getExternalStorageDirectory().getPath() + "/PocketMine");
 	}
 
 	final public static Boolean killProcessByName(String mProcessName) {
-
 		return execCommand(getAppDirectory() + "/killall " + mProcessName);
 	}
 
