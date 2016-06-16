@@ -45,7 +45,7 @@ public class ServerService extends Service {
 			Context context = getApplicationContext();
 			
 			android.support.v4.app.NotificationCompat.Builder note=new NotificationCompat.Builder(this)
-				.setSmallIcon(R.drawable.ic_launcher)
+				.setSmallIcon(R.drawable.pm_chars)
 				.setContentTitle(context.getResources().getString(R.string.service_running))
 				.setWhen(System.currentTimeMillis());
 			Intent i = new Intent(context, HomeActivity.class);
