@@ -1,1 +1,1 @@
-include ':app', ':compat'
+include ':app', ':compat', ':aFileChooser'

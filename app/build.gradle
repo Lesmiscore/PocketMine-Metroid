@@ -33,4 +33,5 @@ dependencies {
 	compile 'org.jsoup:jsoup:1.7.3'
 	compile 'org.apache.commons:commons-compress:1.7'
 	compile 'com.google.code.gson:gson:2.6.2'
+	compile project(':aFileChooser')
 }
