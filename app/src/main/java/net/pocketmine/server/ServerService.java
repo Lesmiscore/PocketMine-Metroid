@@ -58,6 +58,8 @@ public class ServerService extends Service {
 			note.setContentText(context.getResources().getString(R.string.tap_open));
 			note.setContentIntent(pi);
 			note.setOngoing(true);
+			
+			note.addAction(R.drawable.ic_action_cancel,getResources().getString(R.string.stop),PendingIntent.getBroadcast(this,0,new Intent(getPackageName()+".EX_COMMAND").putExtra("cmd","stop"),PendingIntent.FLAG_UPDATE_CURRENT));
 
 			startForeground(1337, note.build());
 		}
