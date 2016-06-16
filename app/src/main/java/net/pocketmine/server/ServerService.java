@@ -42,20 +42,18 @@ public class ServerService extends Service {
 
 			isRunning = true;
 
-			Context context = getApplicationContext();
-			
 			android.support.v4.app.NotificationCompat.Builder note=new NotificationCompat.Builder(this)
 				.setSmallIcon(R.drawable.pm_chars)
-				.setContentTitle(context.getResources().getString(R.string.service_running))
+				.setContentTitle(getResources().getString(R.string.service_running))
 				.setWhen(System.currentTimeMillis());
-			Intent i = new Intent(context, HomeActivity.class);
+			Intent i = new Intent(this, HomeActivity.class);
 
 			i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
 					| Intent.FLAG_ACTIVITY_SINGLE_TOP);
 
 			PendingIntent pi = PendingIntent.getActivity(this, 0, i, 0);
 
-			note.setContentText(context.getResources().getString(R.string.tap_open));
+			note.setContentText(getResources().getString(R.string.tap_open));
 			note.setContentIntent(pi);
 			note.setOngoing(true);
 			
