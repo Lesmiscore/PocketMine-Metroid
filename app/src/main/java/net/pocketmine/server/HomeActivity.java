@@ -46,14 +46,14 @@ import org.apache.http.conn.util.InetAddressUtils;
 public class HomeActivity extends AppCompatActivity {
 
 	final static int PROJECT_CODE = 143;
-	final static int VERSION_MANAGER_CODE = PROJECT_CODE + 1;
-	final static int FILE_MANAGER_CODE = VERSION_MANAGER_CODE + 1;
-	final static int PROPERTIES_EDITOR_CODE = FILE_MANAGER_CODE + 1;
-	final static int PLUGINS_CODE = PROPERTIES_EDITOR_CODE + 1;
-	final static int FORCE_CLOSE_CODE = PLUGINS_CODE + 1;
-	final static int ABOUT_US_CODE = FORCE_CLOSE_CODE + 1;
-	final static int CONSOLE_CODE = ABOUT_US_CODE + 1;
-	final static int REINSTALL_PHP_CODE = CONSOLE_CODE + 1;
+	final static int VERSION_MANAGER_CODE = 144;
+	final static int FILE_MANAGER_CODE = 145;
+	final static int PROPERTIES_EDITOR_CODE = 146;
+	final static int PLUGINS_CODE = 147;
+	final static int FORCE_CLOSE_CODE = 148;
+	final static int ABOUT_US_CODE = 149;
+	final static int CONSOLE_CODE = 150;
+	final static int REINSTALL_PHP_CODE = 151;
 	public static HashMap<String, String> server;
 	public static SharedPreferences prefs;
 
