@@ -54,6 +54,7 @@ public class HomeActivity extends AppCompatActivity {
 	final static int ABOUT_US_CODE = 149;
 	final static int CONSOLE_CODE = 150;
 	final static int REINSTALL_PHP_CODE = 151;
+	final static int CHOOSE_INSTALLATION_DIRECTORY=152;
 	public static HashMap<String, String> server;
 	public static SharedPreferences prefs;
 
