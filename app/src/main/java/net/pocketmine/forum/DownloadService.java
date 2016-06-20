@@ -362,7 +362,7 @@ public class DownloadService extends Service {
 					if (f.exists()) {
 						f.delete();
 					}
-					new File(path, ".download").renameTo(f);
+					new File(path+".download").renameTo(f);
 				}
 
 				PluginListManager.installPlugin(id, updated, filename, files);
